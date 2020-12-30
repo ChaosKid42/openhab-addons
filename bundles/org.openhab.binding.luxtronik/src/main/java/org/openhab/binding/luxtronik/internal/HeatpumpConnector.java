@@ -30,7 +30,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author Jan-Philipp Bolle - Initial contribution
  * @author John Cocula -- made port configurable
- * @author Hilbrand Bouwkamp  - Migrated to openHAB 3
+ * @author Hilbrand Bouwkamp - Migrated to openHAB 3
  */
 @NonNullByDefault
 class HeatpumpConnector implements Closeable {
@@ -56,7 +56,6 @@ class HeatpumpConnector implements Closeable {
         dataout = new DataOutputStream(out);
         logger.debug("Heatpump connect");
     }
-
 
     /**
      * read the parameters of the heatpump
@@ -111,7 +110,6 @@ class HeatpumpConnector implements Closeable {
             logger.debug("Successful parameter {} with value {} to heatpump written.", param, value);
             return true;
         }
-
     }
 
     /**
@@ -154,7 +152,7 @@ class HeatpumpConnector implements Closeable {
         try {
             dataout.close();
         } catch (IOException e) {
-            // Eat close exception        }
+            // Eat close exception }
         }
         try {
             sock.close();

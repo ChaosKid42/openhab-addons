@@ -29,16 +29,16 @@
 		<description>Cooling Operation Mode</description>
 		<state>
 			<options>
-			  <option value="0">Off</option>
-			  <option value="1">Automatic</option>
+				<option value="0">Off</option>
+				<option value="1">Automatic</option>
 			</options>
 		</state>
 	</channel-type>
 
-    <channel-type id="sample-channel">
-        <item-type>Switch</item-type>
-        <label>Luxtronik Binding Channel</label>
-        <description>Sample channel for Luxtronik Binding</description>
-    </channel-type>
+	<channel-type id="sample-channel">
+		<item-type>Switch</item-type>
+		<label>Luxtronik Binding Channel</label>
+		<description>Sample channel for Luxtronik Binding</description>
+	</channel-type>
 
 </thing:thing-descriptions>

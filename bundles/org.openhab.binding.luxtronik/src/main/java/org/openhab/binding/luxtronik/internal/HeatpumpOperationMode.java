@@ -42,7 +42,7 @@ enum HeatpumpOperationMode {
         return value;
     }
 
-    public @Nullable HeatpumpOperationMode fromValue(int value) {
+    public static @Nullable HeatpumpOperationMode fromValue(int value) {
         for (HeatpumpOperationMode mode : HeatpumpOperationMode.values()) {
             if (mode.value == value) {
                 return mode;
@@ -50,5 +50,4 @@ enum HeatpumpOperationMode {
         }
         return null;
     }
-
 }

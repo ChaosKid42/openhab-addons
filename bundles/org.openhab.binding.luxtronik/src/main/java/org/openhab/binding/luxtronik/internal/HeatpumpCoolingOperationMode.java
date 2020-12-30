@@ -13,6 +13,7 @@
 package org.openhab.binding.luxtronik.internal;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
+import org.eclipse.jdt.annotation.Nullable;
 
 /**
  *
@@ -35,7 +36,7 @@ enum HeatpumpCoolingOperationMode {
         return value;
     }
 
-    public @Nullable static HeatpumpCoolingOperationMode fromValue(int value) {
+    public static @Nullable HeatpumpCoolingOperationMode fromValue(int value) {
         for (HeatpumpCoolingOperationMode mode : HeatpumpCoolingOperationMode.values()) {
             if (mode.value == value) {
                 return mode;
@@ -43,5 +44,4 @@ enum HeatpumpCoolingOperationMode {
         }
         return null;
     }
-
 }

@@ -43,7 +43,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author Jan-Philipp Bolle - Initial contribution
  * @author John Cocula - made port configurable
- * @author Hilbrand Bouwkamp  - Migrated to openHAB 3
+ * @author Hilbrand Bouwkamp - Migrated to openHAB 3
  */
 @NonNullByDefault
 public class LuxtronikHandler extends BaseThingHandler {
@@ -101,7 +101,7 @@ public class LuxtronikHandler extends BaseThingHandler {
                             DecimalType.class.getSimpleName());
                 }
                 break;
-                // old openHAB 1 code from here - remove line when done
+            // old openHAB 1 code from here - remove line when done
             case CHANNEL_HEATING_TEMPERATURE:
                 if (command instanceof DecimalType) {
                     float temperature = ((DecimalType) command).floatValue();
@@ -397,71 +397,71 @@ public class LuxtronikHandler extends BaseThingHandler {
     // This is probably not needed as values can be used in option, and text set in option.
     private String getExtendeStateString(int[] heatpumpValues) {
         String returnValue = "";
-        switch (heatpumpValues[119]) {
-            case -1:
-                returnValue = Messages.HeatPumpBinding_ERROR;
-                break;
-            case 0:
-                returnValue = Messages.HeatPumpBinding_HEATING;
-                break;
-            case 1:
-                returnValue = Messages.HeatPumpBinding_STANDBY;
-                break;
-            case 2:
-                returnValue = Messages.HeatPumpBinding_SWITCH_ON_DELAY;
-                break;
-            case 3:
-                returnValue = Messages.HeatPumpBinding_SWITCHING_CYCLE_BLOCKING;
-                break;
-            case 4:
-                returnValue = Messages.HeatPumpBinding_PROVIDER_LOCK_TIME;
-                break;
-            case 5:
-                returnValue = Messages.HeatPumpBinding_SERVICE_WATER;
-                break;
-            case 6:
-                returnValue = Messages.HeatPumpBinding_SCREED_HEAT_UP;
-                break;
-            case 7:
-                returnValue = Messages.HeatPumpBinding_DEFROSTING;
-                break;
-            case 8:
-                returnValue = Messages.HeatPumpBinding_PUMP_FLOW;
-                break;
-            case 9:
-                returnValue = Messages.HeatPumpBinding_DISINFECTION;
-                break;
-            case 10:
-                returnValue = Messages.HeatPumpBinding_COOLING;
-                break;
-            case 12:
-                returnValue = Messages.HeatPumpBinding_POOL_WATER;
-                break;
-            case 13:
-                returnValue = Messages.HeatPumpBinding_HEATING_EXT;
-                break;
-            case 14:
-                returnValue = Messages.HeatPumpBinding_SERVICE_WATER_EXT;
-                break;
-            case 16:
-                returnValue = Messages.HeatPumpBinding_FLOW_MONITORING;
-                break;
-            case 17:
-                returnValue = Messages.HeatPumpBinding_ZWE_OPERATION;
-                break;
-            case 18:
-                returnValue = Messages.HeatPumpBinding_COMPRESSOR_HEATING;
-                break;
-            case 19:
-                returnValue = Messages.HeatPumpBinding_SERVICE_WATER_ADDITIONAL_HEATING;
-                break;
-            default:
-                logger.info(
-                        "found new value for reverse engineering !!!! No idea what the heatpump will do in state {}.",
-                        heatpumpValues[119]);
-                returnValue = Messages.HeatPumpBinding_UNKNOWN;
+        // switch (heatpumpValues[119]) {
+        // case -1:
+        // returnValue = Messages.HeatPumpBinding_ERROR;
+        // break;
+        // case 0:
+        // returnValue = Messages.HeatPumpBinding_HEATING;
+        // break;
+        // case 1:
+        // returnValue = Messages.HeatPumpBinding_STANDBY;
+        // break;
+        // case 2:
+        // returnValue = Messages.HeatPumpBinding_SWITCH_ON_DELAY;
+        // break;
+        // case 3:
+        // returnValue = Messages.HeatPumpBinding_SWITCHING_CYCLE_BLOCKING;
+        // break;
+        // case 4:
+        // returnValue = Messages.HeatPumpBinding_PROVIDER_LOCK_TIME;
+        // break;
+        // case 5:
+        // returnValue = Messages.HeatPumpBinding_SERVICE_WATER;
+        // break;
+        // case 6:
+        // returnValue = Messages.HeatPumpBinding_SCREED_HEAT_UP;
+        // break;
+        // case 7:
+        // returnValue = Messages.HeatPumpBinding_DEFROSTING;
+        // break;
+        // case 8:
+        // returnValue = Messages.HeatPumpBinding_PUMP_FLOW;
+        // break;
+        // case 9:
+        // returnValue = Messages.HeatPumpBinding_DISINFECTION;
+        // break;
+        // case 10:
+        // returnValue = Messages.HeatPumpBinding_COOLING;
+        // break;
+        // case 12:
+        // returnValue = Messages.HeatPumpBinding_POOL_WATER;
+        // break;
+        // case 13:
+        // returnValue = Messages.HeatPumpBinding_HEATING_EXT;
+        // break;
+        // case 14:
+        // returnValue = Messages.HeatPumpBinding_SERVICE_WATER_EXT;
+        // break;
+        // case 16:
+        // returnValue = Messages.HeatPumpBinding_FLOW_MONITORING;
+        // break;
+        // case 17:
+        // returnValue = Messages.HeatPumpBinding_ZWE_OPERATION;
+        // break;
+        // case 18:
+        // returnValue = Messages.HeatPumpBinding_COMPRESSOR_HEATING;
+        // break;
+        // case 19:
+        // returnValue = Messages.HeatPumpBinding_SERVICE_WATER_ADDITIONAL_HEATING;
+        // break;
+        // default:
+        // logger.info(
+        // "found new value for reverse engineering !!!! No idea what the heatpump will do in state {}.",
+        // heatpumpValues[119]);
+        // returnValue = Messages.HeatPumpBinding_UNKNOWN;
 
-        }
+        // }
         return returnValue;
     }
 
@@ -476,38 +476,38 @@ public class LuxtronikHandler extends BaseThingHandler {
     // This is probably not needed as values can be used in option, and text set in option.
     private String getStateString(int[] heatpumpValues) {
         String returnValue = "";
-        switch (heatpumpValues[117]) {
-            case -1:
-                returnValue = Messages.HeatPumpBinding_ERROR;
-                break;
-            case 0:
-                returnValue = Messages.HeatPumpBinding_RUNNING;
-                break;
-            case 1:
-                returnValue = Messages.HeatPumpBinding_STOPPED;
-                break;
-            case 2:
-                returnValue = Messages.HeatPumpBinding_APPEAR;
-                break;
-            case 4:
-                returnValue = Messages.HeatPumpBinding_ERROR;
-                break;
-            case 5:
-                returnValue = Messages.HeatPumpBinding_DEFROSTING;
-                break;
-            case 7:
-                returnValue = Messages.HeatPumpBinding_COMPRESSOR_HEATING;
-                break;
-            case 8:
-                returnValue = Messages.HeatPumpBinding_PUMP_FLOW;
-                break;
-            default:
-                logger.info(
-                        "Found new value for reverse engineering !!!! No idea what the heatpump will do in state {}.",
-                        heatpumpValues[117]);
-                returnValue = Messages.HeatPumpBinding_UNKNOWN;
+        // switch (heatpumpValues[117]) {
+        // case -1:
+        // returnValue = Messages.HeatPumpBinding_ERROR;
+        // break;
+        // case 0:
+        // returnValue = Messages.HeatPumpBinding_RUNNING;
+        // break;
+        // case 1:
+        // returnValue = Messages.HeatPumpBinding_STOPPED;
+        // break;
+        // case 2:
+        // returnValue = Messages.HeatPumpBinding_APPEAR;
+        // break;
+        // case 4:
+        // returnValue = Messages.HeatPumpBinding_ERROR;
+        // break;
+        // case 5:
+        // returnValue = Messages.HeatPumpBinding_DEFROSTING;
+        // break;
+        // case 7:
+        // returnValue = Messages.HeatPumpBinding_COMPRESSOR_HEATING;
+        // break;
+        // case 8:
+        // returnValue = Messages.HeatPumpBinding_PUMP_FLOW;
+        // break;
+        // default:
+        // logger.info(
+        // "Found new value for reverse engineering !!!! No idea what the heatpump will do in state {}.",
+        // heatpumpValues[117]);
+        // returnValue = Messages.HeatPumpBinding_UNKNOWN;
 
-        }
+        // }
         return returnValue;
     }
 
