@@ -12,7 +12,7 @@
  */
 package org.openhab.binding.novelanheatpump.internal;
 
-import static org.openhab.binding.novelanheatpump.internal.NovelanHeatpumpBindingConstants.*;
+import static org.openhab.binding.novelanheatpump.internal.NovelanHeatpumpBindingConstants.CHANNEL_1;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
@@ -60,6 +60,7 @@ public class NovelanHeatpumpHandler extends BaseThingHandler {
 
     @Override
     public void initialize() {
+        logger.warn("Hallo!");
         config = getConfigAs(NovelanHeatpumpConfiguration.class);
 
         // TODO: Initialize the handler.

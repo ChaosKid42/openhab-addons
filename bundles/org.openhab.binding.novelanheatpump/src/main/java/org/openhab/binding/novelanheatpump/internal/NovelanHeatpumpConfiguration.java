@@ -19,8 +19,29 @@ package org.openhab.binding.novelanheatpump.internal;
  */
 public class NovelanHeatpumpConfiguration {
 
+    // Novelan Heatpump Thing constants
+    public static final String HOST = "host";
+    public static final String PORT = "port";
+    public static final String CONNECTION_TIMEOUT = "connectionTimeout";
+    public static final String POLL_PERIOD = "pollPeriod";
+
     /**
-     * Sample configuration parameter. Replace with your own.
+     * The IP address of the Novelan Heatpump
      */
-    public String config1;
+    public String host;
+
+    /**
+     * The port number of the Novelan Heatpump
+     */
+    public Integer port;
+
+    /**
+     * The Socket connection timeout for the Novelan Heatpump
+     */
+    public Integer connectionTimeout;
+
+    /**
+     * The Parameter Poll Period. Can be set in range 1-15 minutes. Default is 1 minute;
+     */
+    public Integer pollPeriod;
 }

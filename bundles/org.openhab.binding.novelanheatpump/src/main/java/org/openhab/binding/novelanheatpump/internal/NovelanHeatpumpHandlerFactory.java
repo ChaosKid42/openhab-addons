@@ -12,9 +12,8 @@
  */
 package org.openhab.binding.novelanheatpump.internal;
 
-import static org.openhab.binding.novelanheatpump.internal.NovelanHeatpumpBindingConstants.*;
+import static org.openhab.binding.novelanheatpump.internal.NovelanHeatpumpBindingConstants.THING_TYPE_HEATPUMP;
 
-import java.util.Collections;
 import java.util.Set;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
@@ -36,7 +35,7 @@ import org.osgi.service.component.annotations.Component;
 @Component(configurationPid = "binding.novelanheatpump", service = ThingHandlerFactory.class)
 public class NovelanHeatpumpHandlerFactory extends BaseThingHandlerFactory {
 
-    private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES_UIDS = Set.of(THING_TYPE_SAMPLE);
+    private static final Set<ThingTypeUID> SUPPORTED_THING_TYPES_UIDS = Set.of(THING_TYPE_HEATPUMP);
 
     @Override
     public boolean supportsThingType(ThingTypeUID thingTypeUID) {
@@ -47,7 +46,7 @@ public class NovelanHeatpumpHandlerFactory extends BaseThingHandlerFactory {
     protected @Nullable ThingHandler createHandler(Thing thing) {
         ThingTypeUID thingTypeUID = thing.getThingTypeUID();
 
-        if (THING_TYPE_SAMPLE.equals(thingTypeUID)) {
+        if (THING_TYPE_HEATPUMP.equals(thingTypeUID)) {
             return new NovelanHeatpumpHandler(thing);
         }
 
