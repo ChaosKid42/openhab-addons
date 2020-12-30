@@ -19,12 +19,6 @@ package org.openhab.binding.novelanheatpump.internal;
  */
 public class NovelanHeatpumpConfiguration {
 
-    // Novelan Heatpump Thing constants
-    public static final String HOST = "host";
-    public static final String PORT = "port";
-    public static final String CONNECTION_TIMEOUT = "connectionTimeout";
-    public static final String POLL_PERIOD = "pollPeriod";
-
     /**
      * The IP address of the Novelan Heatpump
      */
