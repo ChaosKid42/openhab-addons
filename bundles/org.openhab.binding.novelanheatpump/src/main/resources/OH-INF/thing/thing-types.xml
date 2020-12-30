@@ -22,18 +22,19 @@
 			<parameter name="port" type="integer" required="true">
 				<label>Port</label>
 				<description>TCP port.</description>
+				<default>8888</default>
 			</parameter>
 
-			<parameter name="connectionTimeout" type="integer" required="false">
+			<parameter name="connectionTimeout" type="integer" unit="ms" required="false">
 				<label>Connection Timeout</label>
 				<description>TCP Socket Connection Timeout (milliseconds).</description>
 				<default>5000</default>
 			</parameter>
 
-			<parameter name="pollPeriod" type="integer" required="false" min="1" max="15">
-				<label>Poll Period</label>
-				<description>The Poll Period (minutes).</description>
-				<default>1</default>
+			<parameter name="pollingInterval" type="integer" min="5" max="60" unit="s" required="false">
+				<label>Polling Interval</label>
+				<description>The polling interval in seconds.</description>
+				<default>60</default>
 			</parameter>
 		</config-description>
 

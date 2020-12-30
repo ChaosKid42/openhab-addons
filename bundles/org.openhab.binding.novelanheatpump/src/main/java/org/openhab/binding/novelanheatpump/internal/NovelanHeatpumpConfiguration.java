@@ -30,12 +30,12 @@ public class NovelanHeatpumpConfiguration {
     public Integer port;
 
     /**
-     * The Socket connection timeout for the Novelan Heatpump
+     * The socket connection timeout for the Novelan Heatpump
      */
     public Integer connectionTimeout;
 
     /**
-     * The Parameter Poll Period. Can be set in range 1-15 minutes. Default is 1 minute;
+     * The polling interval in s
      */
-    public Integer pollPeriod;
+    public Integer pollingInterval;
 }

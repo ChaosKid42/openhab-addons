@@ -62,6 +62,10 @@ public class NovelanHeatpumpHandler extends BaseThingHandler {
     public void initialize() {
         logger.warn("Hallo!");
         config = getConfigAs(NovelanHeatpumpConfiguration.class);
+        logger.warn("Host: " + config.host);
+        logger.warn("Port: " + config.port);
+        logger.warn("ConnectionTimeout: " + config.connectionTimeout);
+        logger.warn("PollingInterval " + config.pollingInterval);
 
         // TODO: Initialize the handler.
         // The framework requires you to return from this method quickly. Also, before leaving this method a thing
