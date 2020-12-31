@@ -445,8 +445,11 @@
 		<description>heating_operation_mode</description>
 		<state>
 			<options>
-				<option value="0">Off</option>
-				<option value="1">Automatic</option>
+				<option value="0">@text/channel-type.luxtronik.heating_operation_mode.state.option.0</option>
+				<option value="1">@text/channel-type.luxtronik.heating_operation_mode.state.option.1</option>
+				<option value="2">@text/channel-type.luxtronik.heating_operation_mode.state.option.2</option>
+				<option value="3">@text/channel-type.luxtronik.heating_operation_mode.state.option.3</option>
+				<option value="4">@text/channel-type.luxtronik.heating_operation_mode.state.option.4</option>
 			</options>
 		</state>
 	</channel-type>
@@ -465,8 +468,11 @@
 		<description>warmwater_operation_mode</description>
 		<state>
 			<options>
-				<option value="0">Off</option>
-				<option value="1">Automatic</option>
+				<option value="0">@text/channel-type.luxtronik.warmwater_operation_mode.state.option.0</option>
+				<option value="1">@text/channel-type.luxtronik.warmwater_operation_mode.state.option.1</option>
+				<option value="2">@text/channel-type.luxtronik.warmwater_operation_mode.state.option.2</option>
+				<option value="3">@text/channel-type.luxtronik.warmwater_operation_mode.state.option.3</option>
+				<option value="4">@text/channel-type.luxtronik.warmwater_operation_mode.state.option.4</option>
 			</options>
 		</state>
 	</channel-type>
@@ -485,8 +491,11 @@
 		<description>cooling_operation_mode</description>
 		<state>
 			<options>
-				<option value="0">Off</option>
-				<option value="1">Automatic</option>
+				<option value="0">@text/channel-type.luxtronik.cooling_operation_mode.state.option.0</option>
+				<option value="1">@text/channel-type.luxtronik.cooling_operation_mode.state.option.1</option>
+				<option value="2">@text/channel-type.luxtronik.cooling_operation_mode.state.option.2</option>
+				<option value="3">@text/channel-type.luxtronik.cooling_operation_mode.state.option.3</option>
+				<option value="4">@text/channel-type.luxtronik.cooling_operation_mode.state.option.4</option>
 			</options>
 		</state>
 	</channel-type>
