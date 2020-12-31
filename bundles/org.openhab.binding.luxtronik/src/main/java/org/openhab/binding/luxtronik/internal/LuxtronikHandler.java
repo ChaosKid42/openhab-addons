@@ -82,8 +82,8 @@ public class LuxtronikHandler extends BaseThingHandler {
         }
         switch (channelUID.getId()) {
             case CHANNEL_HEATING_OPERATION_MODE:
-                if (command instanceof DecimalType) {
-                    final int value = ((DecimalType) command).intValue();
+                if (command instanceof StringType) {
+                    final int value = Integer.parseInt(((StringType) command).toString());
                     final HeatpumpOperationMode mode = HeatpumpOperationMode.fromValue(value);
 
                     if (mode != null) {
@@ -94,7 +94,7 @@ public class LuxtronikHandler extends BaseThingHandler {
                     }
                 } else {
                     logger.warn("Heatpump heating operation mode item {} must be from type:{}.", channelUID,
-                            DecimalType.class.getSimpleName());
+                            StringType.class.getSimpleName());
                 }
                 break;
             // old openHAB 1 code from here - remove line when done
@@ -109,8 +109,8 @@ public class LuxtronikHandler extends BaseThingHandler {
                 }
                 break;
             case CHANNEL_WARMWATER_OPERATION_MODE:
-                if (command instanceof DecimalType) {
-                    int value = ((DecimalType) command).intValue();
+                if (command instanceof StringType) {
+                    final int value = Integer.parseInt(((StringType) command).toString());
                     HeatpumpOperationMode mode = HeatpumpOperationMode.fromValue(value);
                     if (mode != null) {
                         sendParamToHeatpump(PARAM_WARMWATER_OPERATION_MODE, mode.getValue());
@@ -119,7 +119,7 @@ public class LuxtronikHandler extends BaseThingHandler {
                     }
                 } else {
                     logger.warn("Heatpump warmwater operation mode item {} must be from type: {}.", channelUID,
-                            DecimalType.class.getSimpleName());
+                            StringType.class.getSimpleName());
                 }
                 break;
             case CHANNEL_WARMWATER_TEMPERATURE:
@@ -133,8 +133,8 @@ public class LuxtronikHandler extends BaseThingHandler {
                 }
                 break;
             case CHANNEL_COOLING_OPERATION_MODE:
-                if (command instanceof DecimalType) {
-                    int value = ((DecimalType) command).intValue();
+                if (command instanceof StringType) {
+                    final int value = Integer.parseInt(((StringType) command).toString());
                     HeatpumpCoolingOperationMode mode = HeatpumpCoolingOperationMode.fromValue(value);
                     if (mode != null) {
                         sendParamToHeatpump(PARAM_COOLING_OPERATION_MODE, mode.getValue());
@@ -143,7 +143,7 @@ public class LuxtronikHandler extends BaseThingHandler {
                     }
                 } else {
                     logger.warn("Heatpump cooling operation mode item {} must be from type: {}.", channelUID,
-                            DecimalType.class.getSimpleName());
+                            StringType.class.getSimpleName());
                 }
                 break;
             case CHANNEL_COOLING_RELEASE_TEMPERATURE:

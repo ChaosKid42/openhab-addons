@@ -459,7 +459,7 @@
 		<label>heating_temperature</label>
 		<description>heating_temperature</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f °C"/>
+		<state pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="warmwater_operation_mode">
@@ -482,7 +482,7 @@
 		<label>warmwater_temperature</label>
 		<description>warmwater_temperature</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f °C"/>
+		<state pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="cooling_operation_mode">
@@ -493,9 +493,6 @@
 			<options>
 				<option value="0">@text/channel-type.luxtronik.cooling_operation_mode.state.option.0</option>
 				<option value="1">@text/channel-type.luxtronik.cooling_operation_mode.state.option.1</option>
-				<option value="2">@text/channel-type.luxtronik.cooling_operation_mode.state.option.2</option>
-				<option value="3">@text/channel-type.luxtronik.cooling_operation_mode.state.option.3</option>
-				<option value="4">@text/channel-type.luxtronik.cooling_operation_mode.state.option.4</option>
 			</options>
 		</state>
 	</channel-type>
@@ -505,7 +502,7 @@
 		<label>cooling_release_temperature</label>
 		<description>cooling_release_temperature</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f °C"/>
+		<state pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="cooling_inlet_temperature">
@@ -513,21 +510,21 @@
 		<label>cooling_inlet_temperature</label>
 		<description>cooling_inlet_temperature</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f °C"/>
+		<state pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="cooling_start_hours">
 		<item-type>Number:Time</item-type>
 		<label>cooling_start_hours</label>
 		<description>cooling_start_hours</description>
-		<state readOnly="true" pattern="%d h"/>
+		<state pattern="%d h"/>
 	</channel-type>
 
 	<channel-type id="cooling_stop_hours">
 		<item-type>Number:Time</item-type>
 		<label>cooling_stop_hours</label>
 		<description>cooling_stop_hours</description>
-		<state readOnly="true" pattern="%d h"/>
+		<state pattern="%d h"/>
 	</channel-type>
 
 	<channel-type id="output_av">
