@@ -173,14 +173,14 @@
 		<description>state</description>
 		<state readOnly="true" pattern="%s">
 			<options>
-				<option value="-1">error</option>
-				<option value="0">Heatpump running</option>
-				<option value="1">Heatpump stopped</option>
-				<option value="2">Heatpump will start</option>
-				<option value="4">error</option>
-				<option value="5">defrosting</option>
-				<option value="7">compressor heating up</option>
-				<option value="8">pump flow</option>
+				<option value="-1">@text/channel-type.luxtronik.state.state.option.-1</option>
+				<option value="0">@text/channel-type.luxtronik.state.state.option.0</option>
+				<option value="1">@text/channel-type.luxtronik.state.state.option.1</option>
+				<option value="2">@text/channel-type.luxtronik.state.state.option.2</option>
+				<option value="4">@text/channel-type.luxtronik.state.state.option.4</option>
+				<option value="5">@text/channel-type.luxtronik.state.state.option.5</option>
+				<option value="7">@text/channel-type.luxtronik.state.state.option.7</option>
+				<option value="8">@text/channel-type.luxtronik.state.state.option.8</option>
 			</options>
 		</state>
 	</channel-type>
@@ -212,25 +212,25 @@
 		<description>extended_state</description>
 		<state readOnly="true" pattern="%s">
 			<options>
-				<option value="-1">error</option>
-				<option value="0">heating</option>
-				<option value="1">standby</option>
-				<option value="2">switch-on delay</option>
-				<option value="3">switching cycle blocked</option>
-				<option value="4">provider lock time</option>
-				<option value="5">service water</option>
-				<option value="6">screed heat up</option>
-				<option value="7">defrosting</option>
-				<option value="8">pump flow</option>
-				<option value="9">desinfection</option>
-				<option value="10">cooling</option>
-				<option value="12">pool water</option>
-				<option value="13">heating ext.</option>
-				<option value="14">service water ext.</option>
-				<option value="16">flow monitoring</option>
-				<option value="17">ZWE operation</option>
-				<option value="18">compressor heating up</option>
-				<option value="19">service water add. heating</option>
+				<option value="-1">@text/channel-type.luxtronik.extended_state.state.option.-1</option>
+				<option value="0">@text/channel-type.luxtronik.extended_state.state.option.0</option>
+				<option value="1">@text/channel-type.luxtronik.extended_state.state.option.1</option>
+				<option value="2">@text/channel-type.luxtronik.extended_state.state.option.2</option>
+				<option value="3">@text/channel-type.luxtronik.extended_state.state.option.3</option>
+				<option value="4">@text/channel-type.luxtronik.extended_state.state.option.4</option>
+				<option value="5">@text/channel-type.luxtronik.extended_state.state.option.5</option>
+				<option value="6">@text/channel-type.luxtronik.extended_state.state.option.6</option>
+				<option value="7">@text/channel-type.luxtronik.extended_state.state.option.7</option>
+				<option value="8">@text/channel-type.luxtronik.extended_state.state.option.8</option>
+				<option value="9">@text/channel-type.luxtronik.extended_state.state.option.9</option>
+				<option value="10">@text/channel-type.luxtronik.extended_state.state.option.10</option>
+				<option value="12">@text/channel-type.luxtronik.extended_state.state.option.12</option>
+				<option value="13">@text/channel-type.luxtronik.extended_state.state.option.13</option>
+				<option value="14">@text/channel-type.luxtronik.extended_state.state.option.14</option>
+				<option value="16">@text/channel-type.luxtronik.extended_state.state.option.16</option>
+				<option value="17">@text/channel-type.luxtronik.extended_state.state.option.17</option>
+				<option value="18">@text/channel-type.luxtronik.extended_state.state.option.18</option>
+				<option value="19">@text/channel-type.luxtronik.extended_state.state.option.19</option>
 			</options>
 		</state>
 	</channel-type>
