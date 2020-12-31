@@ -289,7 +289,6 @@ public class LuxtronikHandler extends BaseThingHandler {
             updateState(CHANNEL_TEMPERATURE_OUT_EXTERNAL, new DecimalType((double) heatpumpValues[13] / 10));
             updateState(CHANNEL_TEMPERATURE_HOT_GAS, new DecimalType((double) heatpumpValues[14] / 10));
             updateState(CHANNEL_TEMPERATURE_OUTSIDE, new DecimalType((double) heatpumpValues[15] / 10));
-            logger.warn(CHANNEL_TEMPERATURE_OUTSIDE + ": " + heatpumpValues[15] / 10);
             updateState(CHANNEL_TEMPERATURE_OUTSIDE_AVG, new DecimalType((double) heatpumpValues[16] / 10));
             updateState(CHANNEL_TEMPERATURE_SERVICEWATER, new DecimalType((double) heatpumpValues[17] / 10));
             updateState(CHANNEL_TEMPERATURE_SERVICEWATER_REFERENCE, new DecimalType((double) heatpumpValues[18] / 10));

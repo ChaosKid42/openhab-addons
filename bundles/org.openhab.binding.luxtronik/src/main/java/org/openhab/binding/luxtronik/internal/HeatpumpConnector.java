@@ -105,7 +105,7 @@ class HeatpumpConnector implements Closeable {
         dataout.flush();
 
         int cmd = datain.readInt();
-        int resp = datain.readInt();
+        datain.readInt();
         if (cmd != 3002) {
             logger.warn("Can't write parameter {} with value {} to heatpump.", param, value);
             return false;
