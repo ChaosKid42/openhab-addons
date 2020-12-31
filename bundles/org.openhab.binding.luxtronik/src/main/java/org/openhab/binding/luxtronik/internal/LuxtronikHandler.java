@@ -16,8 +16,6 @@ import static org.openhab.binding.luxtronik.internal.LuxtronikBindingConstants.*
 
 import java.io.IOException;
 import java.net.UnknownHostException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
@@ -47,8 +45,6 @@ import org.slf4j.LoggerFactory;
  */
 @NonNullByDefault
 public class LuxtronikHandler extends BaseThingHandler {
-
-    private static final SimpleDateFormat sdateformat = new SimpleDateFormat("dd.MM.yy HH:mm");
 
     /** Parameter code for heating operation mode */
     private static int PARAM_HEATING_OPERATION_MODE = 3;
@@ -300,17 +296,17 @@ public class LuxtronikHandler extends BaseThingHandler {
             updateState(CHANNEL_HEATPUMP_SOLAR_COLLECTOR, new DecimalType((double) heatpumpValues[26] / 10));
             updateState(CHANNEL_HEATPUMP_SOLAR_STORAGE, new DecimalType((double) heatpumpValues[27] / 10));
             updateState(CHANNEL_TEMPERATURE_EXTERNAL_SOURCE, new DecimalType((double) heatpumpValues[28] / 10));
-            updateState(CHANNEL_HOURS_COMPRESSOR1, new StringType(formatHours(heatpumpValues[56])));
+            updateState(CHANNEL_TIME_COMPRESSOR1, new DecimalType((double) heatpumpValues[56]));
             updateState(CHANNEL_STARTS_COMPRESSOR1, new DecimalType((double) heatpumpValues[57]));
-            updateState(CHANNEL_HOURS_COMPRESSOR2, new StringType(formatHours(heatpumpValues[58])));
+            updateState(CHANNEL_TIME_COMPRESSOR2, new DecimalType((double) heatpumpValues[58]));
             updateState(CHANNEL_STARTS_COMPRESSOR2, new DecimalType((double) heatpumpValues[59]));
-            updateState(CHANNEL_HOURS_ZWE1, new StringType(formatHours(heatpumpValues[60])));
-            updateState(CHANNEL_HOURS_ZWE2, new StringType(formatHours(heatpumpValues[61])));
-            updateState(CHANNEL_HOURS_ZWE3, new StringType(formatHours(heatpumpValues[62])));
-            updateState(CHANNEL_HOURS_HETPUMP, new StringType(formatHours(heatpumpValues[63])));
-            updateState(CHANNEL_HOURS_HEATING, new StringType(formatHours(heatpumpValues[64])));
-            updateState(CHANNEL_HOURS_WARMWATER, new StringType(formatHours(heatpumpValues[65])));
-            updateState(CHANNEL_HOURS_COOLING, new StringType(formatHours(heatpumpValues[66])));
+            updateState(CHANNEL_TIME_ZWE1, new DecimalType((double) heatpumpValues[60]));
+            updateState(CHANNEL_TIME_ZWE2, new DecimalType((double) heatpumpValues[61]));
+            updateState(CHANNEL_TIME_ZWE3, new DecimalType((double) heatpumpValues[62]));
+            updateState(CHANNEL_TIME_HETPUMP, new DecimalType((double) heatpumpValues[63]));
+            updateState(CHANNEL_TIME_HEATING, new DecimalType((double) heatpumpValues[64]));
+            updateState(CHANNEL_TIME_WARMWATER, new DecimalType((double) heatpumpValues[65]));
+            updateState(CHANNEL_TIME_COOLING, new DecimalType((double) heatpumpValues[66]));
             updateState(CHANNEL_THERMALENERGY_HEATING, new DecimalType((double) heatpumpValues[151] / 10));
             updateState(CHANNEL_THERMALENERGY_WARMWATER, new DecimalType((double) heatpumpValues[152] / 10));
             updateState(CHANNEL_THERMALENERGY_POOL, new DecimalType((double) heatpumpValues[153] / 10));
@@ -318,15 +314,13 @@ public class LuxtronikHandler extends BaseThingHandler {
             updateState(CHANNEL_MASSFLOW, new DecimalType((double) heatpumpValues[155]));
 
             updateState(CHANNEL_HEATPUMP_STATE, new StringType(String.valueOf(heatpumpValues[117])));
-            String heatpumpStateTime = getStateTime(heatpumpValues);
-            updateState(CHANNEL_HEATPUMP_STATE_TIME, new StringType(heatpumpStateTime));
+            updateState(CHANNEL_HEATPUMP_STATE_TIME, new DecimalType((double) heatpumpValues[120]));
 
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_0, new DecimalType(heatpumpValues[106]));
 
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_CODE_0, new DecimalType(heatpumpValues[100]));
 
             updateState(CHANNEL_HEATPUMP_EXTENDED_STATE, new StringType(String.valueOf(heatpumpValues[119])));
-            updateState(CHANNEL_HEATPUMP_EXTENDED_STATE_TIME, new StringType(formatHours(heatpumpValues[120])));
 
             updateState(CHANNEL_HEATING_TEMPERATURE, new DecimalType(heatpumpParams[PARAM_HEATING_TEMPERATURE] / 10.));
             updateState(CHANNEL_HEATING_OPERATION_MODE,
@@ -384,40 +378,5 @@ public class LuxtronikHandler extends BaseThingHandler {
                 updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.NONE, e.getMessage());
             }
         }
-    }
-
-    /**
-     * generate a readable string containing the time since the heatpump is in the state.
-     *
-     * @param heatpumpValues the internal state array of the heatpump
-     * @return a human readable time string
-     */
-    private String getStateTime(int[] heatpumpValues) {
-        String returnValue = "";
-        // for a long time create a date
-        if (heatpumpValues[118] == 2) {
-            long value = heatpumpValues[95];
-            if (value < 0) {
-                value = 0;
-            }
-            Calendar cal = Calendar.getInstance();
-            cal.setTimeInMillis(value * 1000L);
-            returnValue += sdateformat.format(cal.getTime());
-        } else {
-            // for a shorter time use the counted time (HH:mm:ss)
-            int value = heatpumpValues[120];
-            returnValue = formatHours(value);
-        }
-        return returnValue;
-    }
-
-    private String formatHours(int value) {
-        String returnValue = "";
-        returnValue += String.format("%02d:", new Object[] { Integer.valueOf(value / 3600) });
-        value %= 3600;
-        returnValue += String.format("%02d:", new Object[] { Integer.valueOf(value / 60) });
-        value %= 60;
-        returnValue += String.format("%02d", new Object[] { Integer.valueOf(value) });
-        return returnValue;
     }
 }

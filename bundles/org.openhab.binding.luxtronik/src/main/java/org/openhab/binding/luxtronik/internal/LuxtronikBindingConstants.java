@@ -49,7 +49,6 @@ public class LuxtronikBindingConstants {
     public static final String CHANNEL_HEATPUMP_SWITCHOFF_REASON_0 = "switchoff_reason_0";
     public static final String CHANNEL_HEATPUMP_SWITCHOFF_CODE_0 = "switchoff_code_0";
     public static final String CHANNEL_HEATPUMP_EXTENDED_STATE = "extended_state";
-    public static final String CHANNEL_HEATPUMP_EXTENDED_STATE_TIME = "extended_state_time";
     public static final String CHANNEL_HEATPUMP_SOLAR_COLLECTOR = "temperature_solar_collector";
     // in german Temperatur Heissgas
     public static final String CHANNEL_TEMPERATURE_HOT_GAS = "temperature_hot_gas";
@@ -68,29 +67,29 @@ public class LuxtronikBindingConstants {
     // in german Temperatur externe Energiequelle
     public static final String CHANNEL_TEMPERATURE_EXTERNAL_SOURCE = "temperature_external_source";
     // in german Betriebsstunden Verdichter1
-    public static final String CHANNEL_HOURS_COMPRESSOR1 = "hours_compressor1";
+    public static final String CHANNEL_TIME_COMPRESSOR1 = "time_compressor1";
     // in german Impulse (Starts) Verdichter 1
     public static final String CHANNEL_STARTS_COMPRESSOR1 = "starts_compressor1";
     // in german Betriebsstunden Verdichter2
-    public static final String CHANNEL_HOURS_COMPRESSOR2 = "hours_compressor2";
+    public static final String CHANNEL_TIME_COMPRESSOR2 = "time_compressor2";
     // in german Impulse (Starts) Verdichter 2
     public static final String CHANNEL_STARTS_COMPRESSOR2 = "starts_compressor2";
     // Temperatur_TRL_ext
     public static final String CHANNEL_TEMPERATURE_OUT_EXTERNAL = "temperature_out_external";
     // in german Betriebsstunden ZWE1
-    public static final String CHANNEL_HOURS_ZWE1 = "hours_zwe1";
+    public static final String CHANNEL_TIME_ZWE1 = "time_zwe1";
     // in german Betriebsstunden ZWE1
-    public static final String CHANNEL_HOURS_ZWE2 = "hours_zwe2";
+    public static final String CHANNEL_TIME_ZWE2 = "time_zwe2";
     // in german Betriebsstunden ZWE1
-    public static final String CHANNEL_HOURS_ZWE3 = "hours_zwe3";
+    public static final String CHANNEL_TIME_ZWE3 = "time_zwe3";
     // in german Betriebsstunden Wärmepumpe
-    public static final String CHANNEL_HOURS_HETPUMP = "hours_heatpump";
+    public static final String CHANNEL_TIME_HETPUMP = "time_heatpump";
     // in german Betriebsstunden Heizung
-    public static final String CHANNEL_HOURS_HEATING = "hours_heating";
+    public static final String CHANNEL_TIME_HEATING = "time_heating";
     // in german Betriebsstunden Brauchwasser
-    public static final String CHANNEL_HOURS_WARMWATER = "hours_warmwater";
+    public static final String CHANNEL_TIME_WARMWATER = "time_warmwater";
     // in german Betriebsstunden Brauchwasser
-    public static final String CHANNEL_HOURS_COOLING = "hours_cooling";
+    public static final String CHANNEL_TIME_COOLING = "time_cooling";
     // in german Waermemenge Heizung
     public static final String CHANNEL_THERMALENERGY_HEATING = "thermalenergy_heating";
     // in german Waermemenge Brauchwasser

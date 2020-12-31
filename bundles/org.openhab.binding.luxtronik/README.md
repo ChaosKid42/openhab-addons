@@ -67,18 +67,18 @@ _Note that it is planned to generate some part of this based on the XML files wi
 | `temperature_mk2` | Number | |
 | `temperature_mk2_reference` | Number | |
 | `temperature_external_source` | Number |
-| `hours_compressor1` | String | operating hours of compressor one |
+| `time_compressor1` | String | operating time of compressor one |
 | `starts_compressor1` | Number | total starts of compressor one |
-| `hours_compressor2` | String | operating hours of compressor two |
+| `time_compressor2` | String | operating time of compressor two |
 | `starts_compressor2` | Number | total starts of compressor two |
 | `temperature_out_external` | Number | |
-| `hours_zwe1` | String | |
-| `hours_zwe2` | String | |
-| `hours_zwe3` | String | |
-| `hours_heatpump` | String | operating hours of heatpump |
-| `hours_heating` | String | operating hours of heating |
-| `hours_warmwater` | String | operating hours creating warm water |
-| `hours_cooling` | String | operating hours of cooling |
+| `time_zwe1` | String | |
+| `time_zwe2` | String | |
+| `time_zwe3` | String | |
+| `time_heatpump` | String | operating time of heatpump |
+| `time_heating` | String | operating time of heating |
+| `time_warmwater` | String | operating time creating warm water |
+| `time_cooling` | String | operating time of cooling |
 | `thermalenergy_heating` | Number | total energy for heating in KWh |
 | `thermalenergy_warmwater` | Number | total energy for creating warm water in KWh |
 | `thermalenergy_pool` | Number | total energy for heating pool in KWh |
@@ -156,24 +156,23 @@ Number HeatPump_Mk1_Reference   "Vorlauftemperatur MK1 SOLL [%.1f °C]" <tempera
 Number HeatPump_Mk2     "Vorlauftemperatur MK2 IST [%.1f °C]"  <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_mk2" }
 Number HeatPump_Mk2_Reference   "Vorlauftemperatur MK2 SOLL [%.1f °C]" <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_mk2_reference" }
 Number HeatPump_External_Source     "Temperatur externe Energiequelle [%.1f °C]"   <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_external_source" }
-String HeatPump_Hours_Compressor1   "Betriebsstunden Verdichter1 [%s]"  <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_compressor1" }
+String HeatPump_Time_Compressor1   "Betriebsstunden Verdichter1 [%s]"  <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:time_compressor1" }
 Number HeatPump_Starts_Compressor1  "Verdichter 1 [%.1f]"   <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:starts_compressor1" }
-String HeatPump_Hours_Compressor2   "Betriebsstunden Verdichter2 [%s]"  <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_compressor2" }
+String HeatPump_Time_Compressor2   "Betriebsstunden Verdichter2 [%s]"  <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:time_compressor2" }
 Number HeatPump_Starts_Compressor2  "Verdichter 2 [%.1f]"   <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:starts_compressor2" }
-String HeatPump_Hours_Zwe1  "Betriebsstunden ZWE1 [%s]" <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_zwe1" }
-String HeatPump_Hours_Zwe2  "Betriebsstunden ZWE2 [%s]" <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_zwe2" }
-String HeatPump_Hours_Zwe3  "Betriebsstunden ZWE3 [%s]" <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_zwe3" }
-String HeatPump_Hours_Heatpump  "Betriebsstunden [%s]"  <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_heatpump" }
-String HeatPump_Hours_Heating   "Betriebsstunden Heizung [%s]"  <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_heating" }
-String HeatPump_Hours_Warmwater "Betriebsstunden Brauchwasser [%s]" <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_warmwater" }
-String HeatPump_Hours_Cooling   "Betriebsstunden Kuehlung [%s]" <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_cooling" }
+String HeatPump_Time_Zwe1  "Betriebsstunden ZWE1 [%s]" <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:time_zwe1" }
+String HeatPump_Time_Zwe2  "Betriebsstunden ZWE2 [%s]" <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:time_zwe2" }
+String HeatPump_Time_Zwe3  "Betriebsstunden ZWE3 [%s]" <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:time_zwe3" }
+String HeatPump_Time_Heatpump  "Betriebsstunden [%s]"  <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:time_heatpump" }
+String HeatPump_Time_Heating   "Betriebsstunden Heizung [%s]"  <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:time_heating" }
+String HeatPump_Time_Warmwater "Betriebsstunden Brauchwasser [%s]" <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:time_warmwater" }
+String HeatPump_Time_Cooling   "Betriebsstunden Kuehlung [%s]" <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:time_cooling" }
 Number HeatPump_Thermalenergy_Heating   "Waermemenge Heizung [%.1f KWh]"    <energy> (gHeatpump) { channel="luxtronik:heatpump:heatpump:thermalenergy_heating" }
 Number HeatPump_Thermalenergy_Warmwater     "Waermemenge Brauchwasser [%.1f KWh]"   <energy> (gHeatpump) { channel="luxtronik:heatpump:heatpump:thermalenergy_warmwater" }
 Number HeatPump_Thermalenergy_Pool  "Waermemenge Schwimmbad [%.1f KWh]" <energy> (gHeatpump) { channel="luxtronik:heatpump:heatpump:thermalenergy_pool" }
 Number HeatPump_Thermalenergy_Total     "Waermemenge gesamt seit Reset [%.1f KWh]"  <energy> (gHeatpump) { channel="luxtronik:heatpump:heatpump:thermalenergy_total" }
 Number HeatPump_Massflow    "Massentrom [%.1f L/h]" <energy> (gHeatpump) { channel="luxtronik:heatpump:heatpump:massflow" }
 String HeatPump_State_Ext   "Status [%s]"   <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:extended_state" }
-String HeatPump_State_Ext_Time   "Status seit [%s]"   <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:extended_state_time" }
 
 Number HeatPump_heating_operation_mode   "Heizung Betriebsart [%.0f]"  (gHeatpump) { channel="luxtronik:heatpump:heatpump:heating_operation_mode" }
 Number HeatPump_heating_temperature   "Heizung Temperatur [%.1f]"  (gHeatpump) { channel="luxtronik:heatpump:heatpump:heating_temperature" }
@@ -182,8 +181,8 @@ Number HeatPump_warmwater_temperature   "Warmwasser Temperatur [%.1f]"  (gHeatpu
 Number HeatPump_Cool_BA "Betriebsart" (gHeatpump) { channel="luxtronik:heatpump:heatpump:cooling_operation_mode" }
 Number HeatPump_Cooling_Release "Freigabe [%.1f °C]" (gHeatpump) { channel="luxtronik:heatpump:heatpump:cooling_release_temperature" }
 Number HeatPump_Cooling_Inlet "Vorlauf Soll [%.1f °C]" (gHeatpump) { channel="luxtronik:heatpump:heatpump:cooling_inlet_temperature" }
-Number HeatPump_Cooling_Start "AT Überschreitung[%.1f hrs]" (gHeatpump) { channel="luxtronik:heatpump:heatpump:cooling_start_hours" }
-Number HeatPump_Cooling_Stop "AT Unterschreitung[%.1f hrs]" (gHeatpump) { channel="luxtronik:heatpump:heatpump:cooling_stop_hours" }
+Number HeatPump_Cooling_Start "AT Überschreitung[%.1f hrs]" (gHeatpump) { channel="luxtronik:heatpump:heatpump:cooling_start_time" }
+Number HeatPump_Cooling_Stop "AT Unterschreitung[%.1f hrs]" (gHeatpump) { channel="luxtronik:heatpump:heatpump:cooling_stop_time" }
 
 Switch HeatPump_HUP  "Heizungsumwälzpumpe [%s]"   <switch>   (gHeatpump)   { channel="luxtronik:heatpump:heatpump:output_hup" }
 

@@ -22,7 +22,6 @@
 			<channel id="switchoff_reason_0" typeId="switchoff_reason_0"/>
 			<channel id="switchoff_code_0" typeId="switchoff_code_0"/>
 			<channel id="extended_state" typeId="extended_state"/>
-			<channel id="extended_state_time" typeId="extended_state_time"/>
 			<channel id="temperature_solar_collector" typeId="temperature_solar_collector"/>
 			<channel id="temperature_hot_gas" typeId="temperature_hot_gas"/>
 			<channel id="temperature_probe_in" typeId="temperature_probe_in"/>
@@ -32,18 +31,18 @@
 			<channel id="temperature_mk2" typeId="temperature_mk2"/>
 			<channel id="temperature_mk2_reference" typeId="temperature_mk2_reference"/>
 			<channel id="temperature_external_source" typeId="temperature_external_source"/>
-			<channel id="hours_compressor1" typeId="hours_compressor1"/>
+			<channel id="time_compressor1" typeId="time_compressor1"/>
 			<channel id="starts_compressor1" typeId="starts_compressor1"/>
-			<channel id="hours_compressor2" typeId="hours_compressor2"/>
+			<channel id="time_compressor2" typeId="time_compressor2"/>
 			<channel id="starts_compressor2" typeId="starts_compressor2"/>
 			<channel id="temperature_out_external" typeId="temperature_out_external"/>
-			<channel id="hours_zwe1" typeId="hours_zwe1"/>
-			<channel id="hours_zwe2" typeId="hours_zwe2"/>
-			<channel id="hours_zwe3" typeId="hours_zwe3"/>
-			<channel id="hours_heatpump" typeId="hours_heatpump"/>
-			<channel id="hours_heating" typeId="hours_heating"/>
-			<channel id="hours_warmwater" typeId="hours_warmwater"/>
-			<channel id="hours_cooling" typeId="hours_cooling"/>
+			<channel id="time_zwe1" typeId="time_zwe1"/>
+			<channel id="time_zwe2" typeId="time_zwe2"/>
+			<channel id="time_zwe3" typeId="time_zwe3"/>
+			<channel id="time_heatpump" typeId="time_heatpump"/>
+			<channel id="time_heating" typeId="time_heating"/>
+			<channel id="time_warmwater" typeId="time_warmwater"/>
+			<channel id="time_cooling" typeId="time_cooling"/>
 			<channel id="thermalenergy_heating" typeId="thermalenergy_heating"/>
 			<channel id="thermalenergy_warmwater" typeId="thermalenergy_warmwater"/>
 			<channel id="thermalenergy_pool" typeId="thermalenergy_pool"/>
@@ -186,10 +185,10 @@
 	</channel-type>
 
 	<channel-type id="state_time">
-		<item-type>String</item-type>
+		<item-type>Number:Time</item-type>
 		<label>state_time</label>
 		<description>state_time</description>
-		<state readOnly="true" pattern="%s"/>
+		<state readOnly="true" pattern="%d s"/>
 	</channel-type>
 
 	<channel-type id="switchoff_reason_0">
@@ -233,13 +232,6 @@
 				<option value="19">@text/channel-type.luxtronik.extended_state.state.option.19</option>
 			</options>
 		</state>
-	</channel-type>
-
-	<channel-type id="extended_state_time">
-		<item-type>String</item-type>
-		<label>extended_state_time</label>
-		<description>extended_state_time</description>
-		<state readOnly="true" pattern="%s"/>
 	</channel-type>
 
 	<channel-type id="temperature_solar_collector">
@@ -314,12 +306,12 @@
 		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
-	<channel-type id="hours_compressor1">
-		<item-type>String</item-type>
-		<label>hours_compressor1</label>
-		<description>hours_compressor1</description>
+	<channel-type id="time_compressor1">
+		<item-type>Number:Time</item-type>
+		<label>time_compressor1</label>
+		<description>time_compressor1</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%s"/>
+		<state readOnly="true" pattern="%d s"/>
 	</channel-type>
 
 	<channel-type id="starts_compressor1">
@@ -329,11 +321,11 @@
 		<state readOnly="true" pattern="%d"/>
 	</channel-type>
 
-	<channel-type id="hours_compressor2">
-		<item-type>String</item-type>
-		<label>hours_compressor2</label>
-		<description>hours_compressor2</description>
-		<state readOnly="true" pattern="%s"/>
+	<channel-type id="time_compressor2">
+		<item-type>Number:Time</item-type>
+		<label>time_compressor2</label>
+		<description>time_compressor2</description>
+		<state readOnly="true" pattern="%d s"/>
 	</channel-type>
 
 	<channel-type id="starts_compressor2">
@@ -351,53 +343,53 @@
 		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
-	<channel-type id="hours_zwe1">
-		<item-type>String</item-type>
-		<label>hours_zwe1</label>
-		<description>hours_zwe1</description>
-		<state readOnly="true" pattern="%s"/>
+	<channel-type id="time_zwe1">
+		<item-type>Number:Time</item-type>
+		<label>time_zwe1</label>
+		<description>time_zwe1</description>
+		<state readOnly="true" pattern="%d s"/>
 	</channel-type>
 
-	<channel-type id="hours_zwe2">
-		<item-type>String</item-type>
-		<label>hours_zwe2</label>
-		<description>hours_zwe2</description>
-		<state readOnly="true" pattern="%s"/>
+	<channel-type id="time_zwe2">
+		<item-type>Number:Time</item-type>
+		<label>time_zwe2</label>
+		<description>time_zwe2</description>
+		<state readOnly="true" pattern="%d s"/>
 	</channel-type>
 
-	<channel-type id="hours_zwe3">
-		<item-type>String</item-type>
-		<label>hours_zwe3</label>
-		<description>hours_zwe3</description>
-		<state readOnly="true" pattern="%s"/>
+	<channel-type id="time_zwe3">
+		<item-type>Number:Time</item-type>
+		<label>time_zwe3</label>
+		<description>time_zwe3</description>
+		<state readOnly="true" pattern="%d s"/>
 	</channel-type>
 
-	<channel-type id="hours_heatpump">
-		<item-type>String</item-type>
-		<label>hours_heatpump</label>
-		<description>hours_heatpump</description>
-		<state readOnly="true" pattern="%s"/>
+	<channel-type id="time_heatpump">
+		<item-type>Number:Time</item-type>
+		<label>time_heatpump</label>
+		<description>time_heatpump</description>
+		<state readOnly="true" pattern="%d s"/>
 	</channel-type>
 
-	<channel-type id="hours_heating">
-		<item-type>String</item-type>
-		<label>hours_heating</label>
-		<description>hours_heating</description>
-		<state readOnly="true" pattern="%s"/>
+	<channel-type id="time_heating">
+		<item-type>Number:Time</item-type>
+		<label>time_heating</label>
+		<description>time_heating</description>
+		<state readOnly="true" pattern="%d s"/>
 	</channel-type>
 
-	<channel-type id="hours_warmwater">
-		<item-type>String</item-type>
-		<label>hours_warmwater</label>
-		<description>hours_warmwater</description>
-		<state readOnly="true" pattern="%s"/>
+	<channel-type id="time_warmwater">
+		<item-type>Number:Time</item-type>
+		<label>time_warmwater</label>
+		<description>time_warmwater</description>
+		<state readOnly="true" pattern="%d s"/>
 	</channel-type>
 
-	<channel-type id="hours_cooling">
-		<item-type>String</item-type>
-		<label>hours_cooling</label>
-		<description>hours_cooling</description>
-		<state readOnly="true" pattern="%s"/>
+	<channel-type id="time_cooling">
+		<item-type>Number:Time</item-type>
+		<label>time_cooling</label>
+		<description>time_cooling</description>
+		<state readOnly="true" pattern="%d s"/>
 	</channel-type>
 
 	<channel-type id="thermalenergy_heating">
@@ -516,17 +508,17 @@
 	</channel-type>
 
 	<channel-type id="cooling_start_hours">
-		<item-type>Number</item-type>
+		<item-type>Number:Time</item-type>
 		<label>cooling_start_hours</label>
 		<description>cooling_start_hours</description>
-		<state readOnly="true" pattern="%.1f hrs"/>
+		<state readOnly="true" pattern="%d h"/>
 	</channel-type>
 
 	<channel-type id="cooling_stop_hours">
-		<item-type>Number</item-type>
+		<item-type>Number:Time</item-type>
 		<label>cooling_stop_hours</label>
 		<description>cooling_stop_hours</description>
-		<state readOnly="true" pattern="%.1f hrs"/>
+		<state readOnly="true" pattern="%d h"/>
 	</channel-type>
 
 	<channel-type id="output_av">
