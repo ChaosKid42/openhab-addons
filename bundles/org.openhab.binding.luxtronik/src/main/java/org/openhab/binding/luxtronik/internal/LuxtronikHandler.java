@@ -329,11 +329,12 @@ public class LuxtronikHandler extends BaseThingHandler {
             updateState(CHANNEL_HEATPUMP_EXTENDED_STATE_TIME, new StringType(formatHours(heatpumpValues[120])));
 
             updateState(CHANNEL_HEATING_TEMPERATURE, new DecimalType(heatpumpParams[PARAM_HEATING_TEMPERATURE] / 10.));
-            updateState(CHANNEL_HEATING_OPERATION_MODE, new DecimalType(heatpumpParams[PARAM_HEATING_OPERATION_MODE]));
+            updateState(CHANNEL_HEATING_OPERATION_MODE,
+                    new StringType(String.valueOf(heatpumpParams[PARAM_HEATING_OPERATION_MODE])));
             updateState(CHANNEL_WARMWATER_TEMPERATURE,
                     new DecimalType(heatpumpParams[PARAM_WARMWATER_TEMPERATURE] / 10.));
             updateState(CHANNEL_WARMWATER_OPERATION_MODE,
-                    new DecimalType(heatpumpParams[PARAM_WARMWATER_OPERATION_MODE]));
+                    new StringType(String.valueOf(heatpumpParams[PARAM_WARMWATER_OPERATION_MODE])));
             updateState(CHANNEL_COOLING_OPERATION_MODE,
                     new StringType(String.valueOf(heatpumpParams[PARAM_COOLING_OPERATION_MODE])));
             updateState(CHANNEL_COOLING_RELEASE_TEMPERATURE,
