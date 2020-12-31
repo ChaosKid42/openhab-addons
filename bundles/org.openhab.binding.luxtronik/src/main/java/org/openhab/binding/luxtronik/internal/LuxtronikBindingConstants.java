@@ -39,17 +39,17 @@ public class LuxtronikBindingConstants {
     // in german Rücklauf Soll
     public static final String CHANNEL_TEMPERATURE_REFERENCE_RETURN = "temperature_reference_return";
     // in german Vorlauf
-    public static final String CHANNEL_TEMPERATURE_SUPPLAY = "temperature_supplay";
+    public static final String CHANNEL_TEMPERATURE_SUPPLY = "temperature_supply";
     // in german Brauchwasser Soll
     public static final String CHANNEL_TEMPERATURE_SERVICEWATER_REFERENCE = "temperature_servicewater_reference";
     // in german Brauchwasser Ist
     public static final String CHANNEL_TEMPERATURE_SERVICEWATER = "temperature_servicewater";
     public static final String CHANNEL_HEATPUMP_STATE = "state";
-    public static final String CHANNEL_HEATPUMP_SIMPLE_STATE = "simple_state";
-    public static final String CHANNEL_HEATPUMP_SIMPLE_STATE_NUM = "simple_state_num";
+    public static final String CHANNEL_HEATPUMP_STATE_TIME = "state_time";
     public static final String CHANNEL_HEATPUMP_SWITCHOFF_REASON_0 = "switchoff_reason_0";
     public static final String CHANNEL_HEATPUMP_SWITCHOFF_CODE_0 = "switchoff_code_0";
     public static final String CHANNEL_HEATPUMP_EXTENDED_STATE = "extended_state";
+    public static final String CHANNEL_HEATPUMP_EXTENDED_STATE_TIME = "extended_state_time";
     public static final String CHANNEL_HEATPUMP_SOLAR_COLLECTOR = "temperature_solar_collector";
     // in german Temperatur Heissgas
     public static final String CHANNEL_TEMPERATURE_HOT_GAS = "temperature_hot_gas";

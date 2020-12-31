@@ -282,8 +282,7 @@ public class LuxtronikHandler extends BaseThingHandler {
                 heatpumpValues[154] -= 214748364;
             }
 
-            updateState(CHANNEL_TEMPERATURE_SUPPLAY, new DecimalType((double) heatpumpValues[10] / 10));
-            // openHAB 3 migration: Migrate all calls from updateState to updateState as above.
+            updateState(CHANNEL_TEMPERATURE_SUPPLY, new DecimalType((double) heatpumpValues[10] / 10));
             updateState(CHANNEL_TEMPERATURE_RETURN, new DecimalType((double) heatpumpValues[11] / 10));
             updateState(CHANNEL_TEMPERATURE_REFERENCE_RETURN, new DecimalType((double) heatpumpValues[12] / 10));
             updateState(CHANNEL_TEMPERATURE_OUT_EXTERNAL, new DecimalType((double) heatpumpValues[13] / 10));
@@ -318,19 +317,16 @@ public class LuxtronikHandler extends BaseThingHandler {
             updateState(CHANNEL_THERMALENERGY_TOTAL, new DecimalType((double) heatpumpValues[154] / 10));
             updateState(CHANNEL_MASSFLOW, new DecimalType((double) heatpumpValues[155]));
 
-            String heatpumpState = getStateString(heatpumpValues) + ": " + getStateTime(heatpumpValues);
-            updateState(CHANNEL_HEATPUMP_STATE, new StringType(heatpumpState));
-            String heatpumpSimpleState = getStateString(heatpumpValues);
-            updateState(CHANNEL_HEATPUMP_SIMPLE_STATE, new StringType(heatpumpSimpleState));
-            updateState(CHANNEL_HEATPUMP_SIMPLE_STATE_NUM, new DecimalType(heatpumpValues[117]));
+            updateState(CHANNEL_HEATPUMP_STATE, new StringType(String.valueOf(heatpumpValues[117])));
+            String heatpumpStateTime = getStateTime(heatpumpValues);
+            updateState(CHANNEL_HEATPUMP_STATE_TIME, new StringType(heatpumpStateTime));
 
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_0, new DecimalType(heatpumpValues[106]));
 
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_CODE_0, new DecimalType(heatpumpValues[100]));
 
-            String heatpumpExtendedState = getExtendeStateString(heatpumpValues) + ": "
-                    + formatHours(heatpumpValues[120]);
-            updateState(CHANNEL_HEATPUMP_EXTENDED_STATE, new StringType(heatpumpExtendedState));
+            updateState(CHANNEL_HEATPUMP_EXTENDED_STATE, new StringType(String.valueOf(heatpumpValues[119])));
+            updateState(CHANNEL_HEATPUMP_EXTENDED_STATE_TIME, new StringType(formatHours(heatpumpValues[120])));
 
             updateState(CHANNEL_HEATING_TEMPERATURE, new DecimalType(heatpumpParams[PARAM_HEATING_TEMPERATURE] / 10.));
             updateState(CHANNEL_HEATING_OPERATION_MODE, new DecimalType(heatpumpParams[PARAM_HEATING_OPERATION_MODE]));
@@ -338,7 +334,8 @@ public class LuxtronikHandler extends BaseThingHandler {
                     new DecimalType(heatpumpParams[PARAM_WARMWATER_TEMPERATURE] / 10.));
             updateState(CHANNEL_WARMWATER_OPERATION_MODE,
                     new DecimalType(heatpumpParams[PARAM_WARMWATER_OPERATION_MODE]));
-            updateState(CHANNEL_COOLING_OPERATION_MODE, new DecimalType(heatpumpParams[PARAM_COOLING_OPERATION_MODE]));
+            updateState(CHANNEL_COOLING_OPERATION_MODE,
+                    new StringType(String.valueOf(heatpumpParams[PARAM_COOLING_OPERATION_MODE])));
             updateState(CHANNEL_COOLING_RELEASE_TEMPERATURE,
                     new DecimalType(heatpumpParams[PARAM_COOLING_RELEASE_TEMP] / 10.));
             updateState(CHANNEL_COOLING_INLET_TEMP, new DecimalType(heatpumpParams[PARAM_COOLING_INLET_TEMP] / 10.));
@@ -386,131 +383,6 @@ public class LuxtronikHandler extends BaseThingHandler {
                 updateStatus(ThingStatus.OFFLINE, ThingStatusDetail.NONE, e.getMessage());
             }
         }
-    }
-
-    /**
-     * generate a readable state string from internal heatpump values.
-     *
-     * @param heatpumpValues
-     *            the internal state array of the heatpump
-     * @return a human readable string, the result displays what the heatpump is
-     *         doing
-     */
-    // This is probably not needed as values can be used in option, and text set in option.
-    private String getExtendeStateString(int[] heatpumpValues) {
-        String returnValue = "";
-        // switch (heatpumpValues[119]) {
-        // case -1:
-        // returnValue = Messages.HeatPumpBinding_ERROR;
-        // break;
-        // case 0:
-        // returnValue = Messages.HeatPumpBinding_HEATING;
-        // break;
-        // case 1:
-        // returnValue = Messages.HeatPumpBinding_STANDBY;
-        // break;
-        // case 2:
-        // returnValue = Messages.HeatPumpBinding_SWITCH_ON_DELAY;
-        // break;
-        // case 3:
-        // returnValue = Messages.HeatPumpBinding_SWITCHING_CYCLE_BLOCKING;
-        // break;
-        // case 4:
-        // returnValue = Messages.HeatPumpBinding_PROVIDER_LOCK_TIME;
-        // break;
-        // case 5:
-        // returnValue = Messages.HeatPumpBinding_SERVICE_WATER;
-        // break;
-        // case 6:
-        // returnValue = Messages.HeatPumpBinding_SCREED_HEAT_UP;
-        // break;
-        // case 7:
-        // returnValue = Messages.HeatPumpBinding_DEFROSTING;
-        // break;
-        // case 8:
-        // returnValue = Messages.HeatPumpBinding_PUMP_FLOW;
-        // break;
-        // case 9:
-        // returnValue = Messages.HeatPumpBinding_DISINFECTION;
-        // break;
-        // case 10:
-        // returnValue = Messages.HeatPumpBinding_COOLING;
-        // break;
-        // case 12:
-        // returnValue = Messages.HeatPumpBinding_POOL_WATER;
-        // break;
-        // case 13:
-        // returnValue = Messages.HeatPumpBinding_HEATING_EXT;
-        // break;
-        // case 14:
-        // returnValue = Messages.HeatPumpBinding_SERVICE_WATER_EXT;
-        // break;
-        // case 16:
-        // returnValue = Messages.HeatPumpBinding_FLOW_MONITORING;
-        // break;
-        // case 17:
-        // returnValue = Messages.HeatPumpBinding_ZWE_OPERATION;
-        // break;
-        // case 18:
-        // returnValue = Messages.HeatPumpBinding_COMPRESSOR_HEATING;
-        // break;
-        // case 19:
-        // returnValue = Messages.HeatPumpBinding_SERVICE_WATER_ADDITIONAL_HEATING;
-        // break;
-        // default:
-        // logger.info(
-        // "found new value for reverse engineering !!!! No idea what the heatpump will do in state {}.",
-        // heatpumpValues[119]);
-        // returnValue = Messages.HeatPumpBinding_UNKNOWN;
-
-        // }
-        return returnValue;
-    }
-
-    /**
-     * generate a readable state string from internal heatpump values.
-     *
-     * @param heatpumpValues
-     *            the internal state array of the heatpump
-     * @return a human readable string, the result displays what the heatpump is
-     *         doing
-     */
-    // This is probably not needed as values can be used in option, and text set in option.
-    private String getStateString(int[] heatpumpValues) {
-        String returnValue = "";
-        // switch (heatpumpValues[117]) {
-        // case -1:
-        // returnValue = Messages.HeatPumpBinding_ERROR;
-        // break;
-        // case 0:
-        // returnValue = Messages.HeatPumpBinding_RUNNING;
-        // break;
-        // case 1:
-        // returnValue = Messages.HeatPumpBinding_STOPPED;
-        // break;
-        // case 2:
-        // returnValue = Messages.HeatPumpBinding_APPEAR;
-        // break;
-        // case 4:
-        // returnValue = Messages.HeatPumpBinding_ERROR;
-        // break;
-        // case 5:
-        // returnValue = Messages.HeatPumpBinding_DEFROSTING;
-        // break;
-        // case 7:
-        // returnValue = Messages.HeatPumpBinding_COMPRESSOR_HEATING;
-        // break;
-        // case 8:
-        // returnValue = Messages.HeatPumpBinding_PUMP_FLOW;
-        // break;
-        // default:
-        // logger.info(
-        // "Found new value for reverse engineering !!!! No idea what the heatpump will do in state {}.",
-        // heatpumpValues[117]);
-        // returnValue = Messages.HeatPumpBinding_UNKNOWN;
-
-        // }
-        return returnValue;
     }
 
     /**

@@ -2,7 +2,7 @@
 
 This binding was originally created for the Novelan heat pump. Since the Novelan control unit is based on the Luxtronik 2 contol unit of Alpha Innotec, this binding should work with all heat pumps that use this type of controller.
 
-Note: The whole functionality was reverse engineered via tcpdump, so use it at your own risk. 
+Note: The whole functionality was reverse engineered via tcpdump, so use it at your own risk.
 
 These parameters can be changed:
 
@@ -59,14 +59,14 @@ _Note that it is planned to generate some part of this based on the XML files wi
 | `switchoff_reason_0` | Number | contains the last shutdown reason |
 | `switchoff_code_0` | Number | contains the last heatpump error code |
 | `temperature_solar_collector` | Number | the temperature of the sensor in the solar collector |
-| `temperature_hot_gas` | Number | 
+| `temperature_hot_gas` | Number |
 | `temperature_probe_in` | Number | temperature flowing to probe head |
 | `temperature_probe_out` | Number | temperature coming  from probe head |
 | `temperature_mk1` | Number | |
-| `temperature_mk1_reference` | Number | | 
+| `temperature_mk1_reference` | Number | |
 | `temperature_mk2` | Number | |
 | `temperature_mk2_reference` | Number | |
-| `temperature_external_source` | Number | 
+| `temperature_external_source` | Number |
 | `hours_compressor1` | String | operating hours of compressor one |
 | `starts_compressor1` | Number | total starts of compressor one |
 | `hours_compressor2` | String | operating hours of compressor two |
@@ -135,55 +135,57 @@ TODO thing example
 ### Items
 
 ```
-Number HeatPump_Temperature_1   "Wärmepumpe Außentemperatur [%.1f °C]"   <temperature> (gHeatpump) { novelanheatpump="temperature_outside" }
-Number HeatPump_Temperature_2   "Rücklauf [%.1f °C]"  <temperature> (gHeatpump) { novelanheatpump="temperature_return" }
-Number HeatPump_Temperature_3   "Rücklauf Soll [%.1f °C]" <temperature> (gHeatpump) { novelanheatpump="temperature_reference_return" }
-Number HeatPump_Temperature_4   "Vorlauf [%.1f °C]"    <temperature> (gHeatpump) { novelanheatpump="temperature_supplay" }
-Number HeatPump_Temperature_5   "Brauchwasser Soll [%.1f °C]"  <temperature> (gHeatpump) { novelanheatpump="temperature_servicewater_reference" }
-Number HeatPump_Temperature_6   "Brauchwasser Ist [%.1f °C]"   <temperature> (gHeatpump) { novelanheatpump="temperature_servicewater" }
-Number HeatPump_Temperature_7   "Solarkollektor [%.1f °C]" <temperature> (gHeatpump) { novelanheatpump="temperature_solar_collector" }
-Number HeatPump_Temperature_8   "Solarspeicher [%.1f °C]"  <temperature> (gHeatpump) { novelanheatpump="temperature_solar_storage" }
-String HeatPump_State   "Status [%s]"   <temperature> (gHeatpump) { novelanheatpump="state" }
+Number HeatPump_Temperature_1   "Wärmepumpe Außentemperatur [%.1f °C]"   <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_outside" }
+Number HeatPump_Temperature_2   "Rücklauf [%.1f °C]"  <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_return" }
+Number HeatPump_Temperature_3   "Rücklauf Soll [%.1f °C]" <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_reference_return" }
+Number HeatPump_Temperature_4   "Vorlauf [%.1f °C]"    <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_supplay" }
+Number HeatPump_Temperature_5   "Brauchwasser Soll [%.1f °C]"  <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_servicewater_reference" }
+Number HeatPump_Temperature_6   "Brauchwasser Ist [%.1f °C]"   <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_servicewater" }
+Number HeatPump_Temperature_7   "Solarkollektor [%.1f °C]" <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_solar_collector" }
+Number HeatPump_Temperature_8   "Solarspeicher [%.1f °C]"  <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_solar_storage" }
+String HeatPump_State   "Status [%s]"   (gHeatpump) { channel="luxtronik:heatpump:heatpump:state" }
+String HeatPump_State_Time   "Status seit [%s]"   <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:state_time" }
 
-Number HeatPump_Retrun_External     "Rücklauf Extern [%.1f °C]"   <temperature> (gHeatpump) { novelanheatpump="temperature_out_external" } // return external
-Number HeatPump_Hot_Gas     "Temperatur Heissgas [%.1f °C]"    <temperature> (gHeatpump) { novelanheatpump="temperature_hot_gas" } // return hot gas
-Number HeatPump_Outside_Avg     "mittlere Aussentemperatur [%.1f °C]"  <temperature> (gHeatpump) { novelanheatpump="temperature_outside_avg" } 
-Number HeatPump_Probe_in    "Sondentemperatur Eingang [%.1f °C]"   <temperature> (gHeatpump) { novelanheatpump="temperature_probe_in" } 
-Number HeatPump_Probe_out   "Sondentemperatur Ausgang [%.1f °C]"   <temperature> (gHeatpump) { novelanheatpump="temperature_probe_out" } 
-Number HeatPump_Mk1     "Vorlauftemperatur MK1 IST [%.1f °C]"  <temperature> (gHeatpump) { novelanheatpump="temperature_mk1" } 
-Number HeatPump_Mk1_Reference   "Vorlauftemperatur MK1 SOLL [%.1f °C]" <temperature> (gHeatpump) { novelanheatpump="temperature_mk1_reference" } 
-Number HeatPump_Mk2     "Vorlauftemperatur MK2 IST [%.1f °C]"  <temperature> (gHeatpump) { novelanheatpump="temperature_mk2" } 
-Number HeatPump_Mk2_Reference   "Vorlauftemperatur MK2 SOLL [%.1f °C]" <temperature> (gHeatpump) { novelanheatpump="temperature_mk2_reference" } 
-Number HeatPump_External_Source     "Temperatur externe Energiequelle [%.1f °C]"   <temperature> (gHeatpump) { novelanheatpump="temperature_external_source" } 
-String HeatPump_Hours_Compressor1   "Betriebsstunden Verdichter1 [%s]"  <clock> (gHeatpump) { novelanheatpump="hours_compressor1" } 
-Number HeatPump_Starts_Compressor1  "Verdichter 1 [%.1f]"   <clock> (gHeatpump) { novelanheatpump="starts_compressor1" } 
-String HeatPump_Hours_Compressor2   "Betriebsstunden Verdichter2 [%s]"  <clock> (gHeatpump) { novelanheatpump="hours_compressor2" } 
-Number HeatPump_Starts_Compressor2  "Verdichter 2 [%.1f]"   <clock> (gHeatpump) { novelanheatpump="starts_compressor2" } 
-String HeatPump_Hours_Zwe1  "Betriebsstunden ZWE1 [%s]" <clock> (gHeatpump) { novelanheatpump="hours_zwe1" }
-String HeatPump_Hours_Zwe2  "Betriebsstunden ZWE2 [%s]" <clock> (gHeatpump) { novelanheatpump="hours_zwe2" }
-String HeatPump_Hours_Zwe3  "Betriebsstunden ZWE3 [%s]" <clock> (gHeatpump) { novelanheatpump="hours_zwe3" }
-String HeatPump_Hours_Heatpump  "Betriebsstunden [%s]"  <clock> (gHeatpump) { novelanheatpump="hours_heatpump" } 
-String HeatPump_Hours_Heating   "Betriebsstunden Heizung [%s]"  <clock> (gHeatpump) { novelanheatpump="hours_heating" }
-String HeatPump_Hours_Warmwater "Betriebsstunden Brauchwasser [%s]" <clock> (gHeatpump) { novelanheatpump="hours_warmwater" }
-String HeatPump_Hours_Cooling   "Betriebsstunden Kuehlung [%s]" <clock> (gHeatpump) { novelanheatpump="hours_cooling" }
-Number HeatPump_Thermalenergy_Heating   "Waermemenge Heizung [%.1f KWh]"    <energy> (gHeatpump) { novelanheatpump="thermalenergy_heating" }
-Number HeatPump_Thermalenergy_Warmwater     "Waermemenge Brauchwasser [%.1f KWh]"   <energy> (gHeatpump) { novelanheatpump="thermalenergy_warmwater" }
-Number HeatPump_Thermalenergy_Pool  "Waermemenge Schwimmbad [%.1f KWh]" <energy> (gHeatpump) { novelanheatpump="thermalenergy_pool" }
-Number HeatPump_Thermalenergy_Total     "Waermemenge gesamt seit Reset [%.1f KWh]"  <energy> (gHeatpump) { novelanheatpump="thermalenergy_total" }
-Number HeatPump_Massflow    "Massentrom [%.1f L/h]" <energy> (gHeatpump) { novelanheatpump="massflow" }
-String HeatPump_State_Ext   "Status [%s]"   <temperature> (gHeatpump) { novelanheatpump="extended_state" }
+Number HeatPump_Retrun_External     "Rücklauf Extern [%.1f °C]"   <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_out_external" } // return external
+Number HeatPump_Hot_Gas     "Temperatur Heissgas [%.1f °C]"    <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_hot_gas" } // return hot gas
+Number HeatPump_Outside_Avg     "mittlere Aussentemperatur [%.1f °C]"  <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_outside_avg" }
+Number HeatPump_Probe_in    "Sondentemperatur Eingang [%.1f °C]"   <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_probe_in" }
+Number HeatPump_Probe_out   "Sondentemperatur Ausgang [%.1f °C]"   <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_probe_out" }
+Number HeatPump_Mk1     "Vorlauftemperatur MK1 IST [%.1f °C]"  <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_mk1" }
+Number HeatPump_Mk1_Reference   "Vorlauftemperatur MK1 SOLL [%.1f °C]" <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_mk1_reference" }
+Number HeatPump_Mk2     "Vorlauftemperatur MK2 IST [%.1f °C]"  <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_mk2" }
+Number HeatPump_Mk2_Reference   "Vorlauftemperatur MK2 SOLL [%.1f °C]" <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_mk2_reference" }
+Number HeatPump_External_Source     "Temperatur externe Energiequelle [%.1f °C]"   <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:temperature_external_source" }
+String HeatPump_Hours_Compressor1   "Betriebsstunden Verdichter1 [%s]"  <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_compressor1" }
+Number HeatPump_Starts_Compressor1  "Verdichter 1 [%.1f]"   <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:starts_compressor1" }
+String HeatPump_Hours_Compressor2   "Betriebsstunden Verdichter2 [%s]"  <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_compressor2" }
+Number HeatPump_Starts_Compressor2  "Verdichter 2 [%.1f]"   <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:starts_compressor2" }
+String HeatPump_Hours_Zwe1  "Betriebsstunden ZWE1 [%s]" <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_zwe1" }
+String HeatPump_Hours_Zwe2  "Betriebsstunden ZWE2 [%s]" <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_zwe2" }
+String HeatPump_Hours_Zwe3  "Betriebsstunden ZWE3 [%s]" <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_zwe3" }
+String HeatPump_Hours_Heatpump  "Betriebsstunden [%s]"  <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_heatpump" }
+String HeatPump_Hours_Heating   "Betriebsstunden Heizung [%s]"  <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_heating" }
+String HeatPump_Hours_Warmwater "Betriebsstunden Brauchwasser [%s]" <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_warmwater" }
+String HeatPump_Hours_Cooling   "Betriebsstunden Kuehlung [%s]" <clock> (gHeatpump) { channel="luxtronik:heatpump:heatpump:hours_cooling" }
+Number HeatPump_Thermalenergy_Heating   "Waermemenge Heizung [%.1f KWh]"    <energy> (gHeatpump) { channel="luxtronik:heatpump:heatpump:thermalenergy_heating" }
+Number HeatPump_Thermalenergy_Warmwater     "Waermemenge Brauchwasser [%.1f KWh]"   <energy> (gHeatpump) { channel="luxtronik:heatpump:heatpump:thermalenergy_warmwater" }
+Number HeatPump_Thermalenergy_Pool  "Waermemenge Schwimmbad [%.1f KWh]" <energy> (gHeatpump) { channel="luxtronik:heatpump:heatpump:thermalenergy_pool" }
+Number HeatPump_Thermalenergy_Total     "Waermemenge gesamt seit Reset [%.1f KWh]"  <energy> (gHeatpump) { channel="luxtronik:heatpump:heatpump:thermalenergy_total" }
+Number HeatPump_Massflow    "Massentrom [%.1f L/h]" <energy> (gHeatpump) { channel="luxtronik:heatpump:heatpump:massflow" }
+String HeatPump_State_Ext   "Status [%s]"   <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:extended_state" }
+String HeatPump_State_Ext_Time   "Status seit [%s]"   <temperature> (gHeatpump) { channel="luxtronik:heatpump:heatpump:extended_state_time" }
 
-Number HeatPump_heating_operation_mode   "Heizung Betriebsart [%.0f]"  (gHeatpump) { novelanheatpump="heating_operation_mode" }
-Number HeatPump_heating_temperature   "Heizung Temperatur [%.1f]"  (gHeatpump) { novelanheatpump="heating_temperature" }
-Number HeatPump_warmwater_operation_mode   "Warmwasser Betriebsart [%.0f]"  (gHeatpump) { novelanheatpump="warmwater_operation_mode" }
-Number HeatPump_warmwater_temperature   "Warmwasser Temperatur [%.1f]"  (gHeatpump) { novelanheatpump="warmwater_temperature" }
-Number HeatPump_Cool_BA "Betriebsart" (gHeatpump) { novelanheatpump="cooling_operation_mode" }
-Number HeatPump_Cooling_Release "Freigabe [%.1f °C]" (gHeatpump) { novelanheatpump="cooling_release_temperature" }
-Number HeatPump_Cooling_Inlet "Vorlauf Soll [%.1f °C]" (gHeatpump) { novelanheatpump="cooling_inlet_temperature" }
-Number HeatPump_Cooling_Start "AT Überschreitung[%.1f hrs]" (gHeatpump) { novelanheatpump="cooling_start_hours" }
-Number HeatPump_Cooling_Stop "AT Unterschreitung[%.1f hrs]" (gHeatpump) { novelanheatpump="cooling_stop_hours" }
+Number HeatPump_heating_operation_mode   "Heizung Betriebsart [%.0f]"  (gHeatpump) { channel="luxtronik:heatpump:heatpump:heating_operation_mode" }
+Number HeatPump_heating_temperature   "Heizung Temperatur [%.1f]"  (gHeatpump) { channel="luxtronik:heatpump:heatpump:heating_temperature" }
+Number HeatPump_warmwater_operation_mode   "Warmwasser Betriebsart [%.0f]"  (gHeatpump) { channel="luxtronik:heatpump:heatpump:warmwater_operation_mode" }
+Number HeatPump_warmwater_temperature   "Warmwasser Temperatur [%.1f]"  (gHeatpump) { channel="luxtronik:heatpump:heatpump:warmwater_temperature" }
+Number HeatPump_Cool_BA "Betriebsart" (gHeatpump) { channel="luxtronik:heatpump:heatpump:cooling_operation_mode" }
+Number HeatPump_Cooling_Release "Freigabe [%.1f °C]" (gHeatpump) { channel="luxtronik:heatpump:heatpump:cooling_release_temperature" }
+Number HeatPump_Cooling_Inlet "Vorlauf Soll [%.1f °C]" (gHeatpump) { channel="luxtronik:heatpump:heatpump:cooling_inlet_temperature" }
+Number HeatPump_Cooling_Start "AT Überschreitung[%.1f hrs]" (gHeatpump) { channel="luxtronik:heatpump:heatpump:cooling_start_hours" }
+Number HeatPump_Cooling_Stop "AT Unterschreitung[%.1f hrs]" (gHeatpump) { channel="luxtronik:heatpump:heatpump:cooling_stop_hours" }
 
-Switch HeatPump_HUP  "Heizungsumwälzpumpe [%s]"   <switch>   (gHeatpump)   { novelanheatpump="output_hup" }
+Switch HeatPump_HUP  "Heizungsumwälzpumpe [%s]"   <switch>   (gHeatpump)   { channel="luxtronik:heatpump:heatpump:output_hup" }
 
 ```
 
