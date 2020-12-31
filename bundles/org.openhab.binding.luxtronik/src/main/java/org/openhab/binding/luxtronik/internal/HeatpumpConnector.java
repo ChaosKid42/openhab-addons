@@ -18,6 +18,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
@@ -47,8 +48,10 @@ class HeatpumpConnector implements Closeable {
      * @throws UnknownHostException indicate that the IP address of a host could not be determined.
      * @throws IOException indicate that no data can be read from the heatpump
      */
-    public HeatpumpConnector(String serverIp, int serverPort) throws UnknownHostException, IOException {
-        sock = new Socket(serverIp, serverPort);
+    public HeatpumpConnector(String serverIp, int serverPort, int connectionTimeout)
+            throws UnknownHostException, IOException {
+        sock = new Socket();
+        sock.connect(new InetSocketAddress(serverIp, serverPort), connectionTimeout);
 
         InputStream in = sock.getInputStream();
         OutputStream out = sock.getOutputStream();
@@ -129,7 +132,7 @@ class HeatpumpConnector implements Closeable {
         if (datain.readInt() != 3004) {
             return new int[0];
         }
-        int stat = datain.readInt();
+        datain.readInt();
         int arraylength = datain.readInt();
         heatpump_values = new int[arraylength];
 

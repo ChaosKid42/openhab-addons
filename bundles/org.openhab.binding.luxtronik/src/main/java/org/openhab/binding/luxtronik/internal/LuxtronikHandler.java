@@ -201,7 +201,8 @@ public class LuxtronikHandler extends BaseThingHandler {
      */
     private void sendParamToHeatpump(int param, int value) {
         synchronized (this) {
-            try (HeatpumpConnector connection = new HeatpumpConnector(config.ip, config.port)) {
+            try (HeatpumpConnector connection = new HeatpumpConnector(config.host, config.port,
+                    config.connectionTimeout)) {
                 connection.setParam(param, value);
             } catch (UnknownHostException e) {
                 logger.warn("The given address '{}' of the heatpump is unknown", getAddress());
@@ -217,11 +218,11 @@ public class LuxtronikHandler extends BaseThingHandler {
         this.config = config;
 
         updateStatus(ThingStatus.UNKNOWN);
-        refreshTask = scheduler.scheduleWithFixedDelay(this::refresh, 0, config.refreshInterval, TimeUnit.SECONDS);
+        refreshTask = scheduler.scheduleWithFixedDelay(this::refresh, 0, config.pollingInterval, TimeUnit.SECONDS);
     }
 
     private String getAddress() {
-        return config.ip + ":" + config.port;
+        return config.host + ":" + config.port;
     }
 
     @Override
@@ -240,7 +241,8 @@ public class LuxtronikHandler extends BaseThingHandler {
             final int[] heatpumpParams;
 
             synchronized (this) {
-                try (HeatpumpConnector connection = new HeatpumpConnector(config.ip, config.port)) {
+                try (HeatpumpConnector connection = new HeatpumpConnector(config.host, config.port,
+                        config.connectionTimeout)) {
                     // read all available values
                     heatpumpValues = connection.getValues();
                     // read all parameters
@@ -287,6 +289,7 @@ public class LuxtronikHandler extends BaseThingHandler {
             updateState(CHANNEL_TEMPERATURE_OUT_EXTERNAL, new DecimalType((double) heatpumpValues[13] / 10));
             updateState(CHANNEL_TEMPERATURE_HOT_GAS, new DecimalType((double) heatpumpValues[14] / 10));
             updateState(CHANNEL_TEMPERATURE_OUTSIDE, new DecimalType((double) heatpumpValues[15] / 10));
+            logger.warn(CHANNEL_TEMPERATURE_OUTSIDE + ": " + heatpumpValues[15] / 10);
             updateState(CHANNEL_TEMPERATURE_OUTSIDE_AVG, new DecimalType((double) heatpumpValues[16] / 10));
             updateState(CHANNEL_TEMPERATURE_SERVICEWATER, new DecimalType((double) heatpumpValues[17] / 10));
             updateState(CHANNEL_TEMPERATURE_SERVICEWATER_REFERENCE, new DecimalType((double) heatpumpValues[18] / 10));

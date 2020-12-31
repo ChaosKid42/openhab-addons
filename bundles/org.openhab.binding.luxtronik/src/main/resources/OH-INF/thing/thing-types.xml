@@ -6,17 +6,37 @@
 
 	<!-- Heatpump Type -->
 	<thing-type id="heatpump">
-		<label>Luxtronik Binding Thing</label>
-		<description>Sample thing for Luxtronik Binding</description>
+		<label>Novelan Heatpump</label>
+		<description>NovelanHeatpump Thing</description>
 
 		<channels>
-			<channel id="channel1" typeId="sample-channel"/>
+			<channel id="cooling-operation-mode" typeId="cooling-operation-mode"/>
+			<channel id="temperature_outside" typeId="outdoor-temperature"/>
 		</channels>
 
 		<config-description>
-			<parameter name="config1" type="text" required="true">
-				<label>Sample Parameter</label>
-				<description>This is a sample text configuration parameter</description>
+			<parameter name="host" type="text" required="true">
+				<context>network-address</context>
+				<label>Host</label>
+				<description>Host name or IP address.</description>
+			</parameter>
+
+			<parameter name="port" type="integer" required="true">
+				<label>Port</label>
+				<description>TCP port.</description>
+				<default>8888</default>
+			</parameter>
+
+			<parameter name="connectionTimeout" type="integer" unit="ms" required="false">
+				<label>Connection Timeout</label>
+				<description>TCP Socket Connection Timeout (milliseconds).</description>
+				<default>5000</default>
+			</parameter>
+
+			<parameter name="pollingInterval" type="integer" min="5" max="60" unit="s" required="false">
+				<label>Polling Interval</label>
+				<description>The polling interval in seconds.</description>
+				<default>60</default>
 			</parameter>
 		</config-description>
 
@@ -33,12 +53,6 @@
 				<option value="1">Automatic</option>
 			</options>
 		</state>
-	</channel-type>
-
-	<channel-type id="sample-channel">
-		<item-type>Switch</item-type>
-		<label>Luxtronik Binding Channel</label>
-		<description>Sample channel for Luxtronik Binding</description>
 	</channel-type>
 
 </thing:thing-descriptions>
