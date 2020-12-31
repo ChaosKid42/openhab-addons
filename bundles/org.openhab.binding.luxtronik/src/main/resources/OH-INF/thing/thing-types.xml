@@ -124,7 +124,7 @@
 		<label>temperature_outside_avg</label>
 		<description>temperature_outside_avg</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="temperature_return">
@@ -132,7 +132,7 @@
 		<label>temperature_return</label>
 		<description>temperature_return</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="temperature_reference_return">
@@ -140,7 +140,7 @@
 		<label>temperature_reference_return</label>
 		<description>temperature_reference_return</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="temperature_supply">
@@ -148,7 +148,7 @@
 		<label>temperature_supply</label>
 		<description>temperature_supply</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="temperature_servicewater_reference">
@@ -156,7 +156,7 @@
 		<label>temperature_servicewater_reference</label>
 		<description>temperature_servicewater_reference</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="temperature_servicewater">
@@ -164,7 +164,7 @@
 		<label>temperature_servicewater</label>
 		<description>temperature_servicewater</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="state">
@@ -247,7 +247,7 @@
 		<label>temperature_solar_collector</label>
 		<description>temperature_solar_collector</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="temperature_hot_gas">
@@ -255,7 +255,7 @@
 		<label>temperature_hot_gas</label>
 		<description>temperature_hot_gas</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="temperature_probe_in">
@@ -263,7 +263,7 @@
 		<label>temperature_probe_in</label>
 		<description>temperature_probe_in</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="temperature_probe_out">
@@ -271,7 +271,7 @@
 		<label>temperature_probe_out</label>
 		<description>temperature_probe_out</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="temperature_mk1">
@@ -279,7 +279,7 @@
 		<label>temperature_mk1</label>
 		<description>temperature_mk1</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="temperature_mk1_reference">
@@ -287,7 +287,7 @@
 		<label>temperature_mk1_reference</label>
 		<description>temperature_mk1_reference</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="temperature_mk2">
@@ -295,7 +295,7 @@
 		<label>temperature_mk2</label>
 		<description>temperature_mk2</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="temperature_mk2_reference">
@@ -303,7 +303,7 @@
 		<label>temperature_mk2_reference</label>
 		<description>temperature_mk2_reference</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="temperature_external_source">
@@ -311,7 +311,7 @@
 		<label>temperature_external_source</label>
 		<description>temperature_external_source</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="hours_compressor1">
@@ -348,7 +348,7 @@
 		<label>temperature_out_external</label>
 		<description>temperature_out_external</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="hours_zwe1">
@@ -405,7 +405,7 @@
 		<label>thermalenergy_heating</label>
 		<description>thermalenergy_heating</description>
 		<category>Energy</category>
-		<state readOnly="true" pattern="%.3f %unit%"/>
+		<state readOnly="true" pattern="%.1f kWh"/>
 	</channel-type>
 
 	<channel-type id="thermalenergy_warmwater">
@@ -413,7 +413,7 @@
 		<label>thermalenergy_warmwater</label>
 		<description>thermalenergy_warmwater</description>
 		<category>Energy</category>
-		<state readOnly="true" pattern="%.3f %unit%"/>
+		<state readOnly="true" pattern="%.1f kWh"/>
 	</channel-type>
 
 	<channel-type id="thermalenergy_pool">
@@ -421,7 +421,7 @@
 		<label>thermalenergy_pool</label>
 		<description>thermalenergy_pool</description>
 		<category>Energy</category>
-		<state readOnly="true" pattern="%.3f %unit%"/>
+		<state readOnly="true" pattern="%.1f kWh"/>
 	</channel-type>
 
 	<channel-type id="thermalenergy_total">
@@ -429,7 +429,7 @@
 		<label>thermalenergy_total</label>
 		<description>thermalenergy_total</description>
 		<category>Energy</category>
-		<state readOnly="true" pattern="%.3f %unit%"/>
+		<state readOnly="true" pattern="%.1f kWh"/>
 	</channel-type>
 
 	<channel-type id="massflow">
@@ -444,7 +444,7 @@
 		<label>temperature_solar_storage</label>
 		<description>temperature_solar_storage</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="heating_operation_mode">
@@ -464,7 +464,7 @@
 		<label>heating_temperature</label>
 		<description>heating_temperature</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="warmwater_operation_mode">
@@ -484,7 +484,7 @@
 		<label>warmwater_temperature</label>
 		<description>warmwater_temperature</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="cooling_operation_mode">
@@ -504,7 +504,7 @@
 		<label>cooling_release_temperature</label>
 		<description>cooling_release_temperature</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="cooling_inlet_temperature">
@@ -512,7 +512,7 @@
 		<label>cooling_inlet_temperature</label>
 		<description>cooling_inlet_temperature</description>
 		<category>Temperature</category>
-		<state readOnly="true" pattern="%.1f %unit%"/>
+		<state readOnly="true" pattern="%.1f °C"/>
 	</channel-type>
 
 	<channel-type id="cooling_start_hours">
