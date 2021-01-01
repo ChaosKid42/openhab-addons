@@ -46,8 +46,16 @@ public class LuxtronikBindingConstants {
     public static final String CHANNEL_TEMPERATURE_SERVICEWATER = "temperature_servicewater";
     public static final String CHANNEL_HEATPUMP_STATE = "state";
     public static final String CHANNEL_HEATPUMP_STATE_TIME = "state_time";
+    public static final String CHANNEL_HEATPUMP_SWITCHOFF_ERROR_0 = "switchoff_error_0";
+    public static final String CHANNEL_HEATPUMP_SWITCHOFF_ERROR_1 = "switchoff_error_1";
+    public static final String CHANNEL_HEATPUMP_SWITCHOFF_ERROR_2 = "switchoff_error_2";
+    public static final String CHANNEL_HEATPUMP_SWITCHOFF_ERROR_3 = "switchoff_error_3";
+    public static final String CHANNEL_HEATPUMP_SWITCHOFF_ERROR_4 = "switchoff_error_4";
     public static final String CHANNEL_HEATPUMP_SWITCHOFF_REASON_0 = "switchoff_reason_0";
-    public static final String CHANNEL_HEATPUMP_SWITCHOFF_CODE_0 = "switchoff_code_0";
+    public static final String CHANNEL_HEATPUMP_SWITCHOFF_REASON_1 = "switchoff_reason_1";
+    public static final String CHANNEL_HEATPUMP_SWITCHOFF_REASON_2 = "switchoff_reason_2";
+    public static final String CHANNEL_HEATPUMP_SWITCHOFF_REASON_3 = "switchoff_reason_3";
+    public static final String CHANNEL_HEATPUMP_SWITCHOFF_REASON_4 = "switchoff_reason_4";
     public static final String CHANNEL_HEATPUMP_EXTENDED_STATE = "extended_state";
     public static final String CHANNEL_HEATPUMP_SOLAR_COLLECTOR = "temperature_solar_collector";
     // in german Temperatur Heissgas

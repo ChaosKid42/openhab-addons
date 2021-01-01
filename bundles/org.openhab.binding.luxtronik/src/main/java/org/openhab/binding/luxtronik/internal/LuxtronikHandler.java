@@ -316,9 +316,17 @@ public class LuxtronikHandler extends BaseThingHandler {
             updateState(CHANNEL_HEATPUMP_STATE, new StringType(String.valueOf(heatpumpValues[117])));
             updateState(CHANNEL_HEATPUMP_STATE_TIME, new DecimalType((double) heatpumpValues[120]));
 
-            updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_0, new DecimalType(heatpumpValues[106]));
+            updateState(CHANNEL_HEATPUMP_SWITCHOFF_ERROR_0, new DecimalType(heatpumpValues[100]));
+            updateState(CHANNEL_HEATPUMP_SWITCHOFF_ERROR_1, new DecimalType(heatpumpValues[101]));
+            updateState(CHANNEL_HEATPUMP_SWITCHOFF_ERROR_2, new DecimalType(heatpumpValues[102]));
+            updateState(CHANNEL_HEATPUMP_SWITCHOFF_ERROR_3, new DecimalType(heatpumpValues[103]));
+            updateState(CHANNEL_HEATPUMP_SWITCHOFF_ERROR_4, new DecimalType(heatpumpValues[104]));
 
-            updateState(CHANNEL_HEATPUMP_SWITCHOFF_CODE_0, new DecimalType(heatpumpValues[100]));
+            updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_0, new DecimalType(heatpumpValues[106]));
+            updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_1, new DecimalType(heatpumpValues[107]));
+            updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_2, new DecimalType(heatpumpValues[108]));
+            updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_3, new DecimalType(heatpumpValues[109]));
+            updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_4, new DecimalType(heatpumpValues[110]));
 
             updateState(CHANNEL_HEATPUMP_EXTENDED_STATE, new StringType(String.valueOf(heatpumpValues[119])));
 
