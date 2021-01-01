@@ -417,6 +417,7 @@ public class LuxtronikHandler extends BaseThingHandler {
             updateState(CHANNEL_OUTPUT_FP3, OnOffType.from(heatpumpValues[140] != 0));
             updateState(CHANNEL_OUTPUT_VSK, OnOffType.from(heatpumpValues[166] != 0));
             updateState(CHANNEL_OUTPUT_FRH, OnOffType.from(heatpumpValues[167] != 0));
+            updateState(CHANNEL_OUTPUT_VDH, OnOffType.from(heatpumpValues[182] != 0));
 
             if (heatpumpValues.length > 213) {
                 updateState(CHANNEL_OUTPUT_AV2, OnOffType.from(heatpumpValues[213] != 0));
