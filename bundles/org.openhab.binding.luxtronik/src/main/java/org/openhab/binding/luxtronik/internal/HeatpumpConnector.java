@@ -30,7 +30,7 @@ import org.slf4j.LoggerFactory;
  * With the heatpump connector the internal state of a Novelan (Siemens) Heatpump can be read.
  *
  * @author Jan-Philipp Bolle - Initial contribution
- * @author John Cocula -- made port configurable
+ * @author John Cocula - made port configurable
  * @author Hilbrand Bouwkamp - Migrated to openHAB 3
  * @author Christoph Scholz - Finished migration to openHAB 3
  */
