@@ -51,6 +51,7 @@ public class LuxtronikBindingConstants {
     public static final String CHANNEL_HEATPUMP_SWITCHOFF_ERROR_2 = "switchoff_error_2";
     public static final String CHANNEL_HEATPUMP_SWITCHOFF_ERROR_3 = "switchoff_error_3";
     public static final String CHANNEL_HEATPUMP_SWITCHOFF_ERROR_4 = "switchoff_error_4";
+    public static final String CHANNEL_HEATPUMP_SWITCHOFF_ERROR_COUNT = "switchoff_error_count";
     public static final String CHANNEL_HEATPUMP_SWITCHOFF_ERROR_TIMESTAMP_0 = "switchoff_error_timestamp_0";
     public static final String CHANNEL_HEATPUMP_SWITCHOFF_ERROR_TIMESTAMP_1 = "switchoff_error_timestamp_1";
     public static final String CHANNEL_HEATPUMP_SWITCHOFF_ERROR_TIMESTAMP_2 = "switchoff_error_timestamp_2";

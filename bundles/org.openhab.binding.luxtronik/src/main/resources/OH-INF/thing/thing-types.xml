@@ -29,6 +29,7 @@
 			<channel id="switchoff_error_timestamp_2" typeId="timestamp"/>
 			<channel id="switchoff_error_timestamp_3" typeId="timestamp"/>
 			<channel id="switchoff_error_timestamp_4" typeId="timestamp"/>
+			<channel id="switchoff_error_count" typeId="switchoff_error_count"/>
 			<channel id="switchoff_reason_0" typeId="switchoff_code"/>
 			<channel id="switchoff_reason_1" typeId="switchoff_code"/>
 			<channel id="switchoff_reason_2" typeId="switchoff_code"/>
@@ -301,6 +302,13 @@
 				<option value="793">@text/channel-type.luxtronik.switchoff_code.state.option.793</option>
 			</options>
 		</state>
+	</channel-type>
+
+	<channel-type id="switchoff_error_count">
+		<item-type>Number</item-type>
+		<label>switchoff_error_count</label>
+		<description>switchoff_error_count</description>
+		<state pattern="%d"/>
 	</channel-type>
 
 	<channel-type id="extended_state">

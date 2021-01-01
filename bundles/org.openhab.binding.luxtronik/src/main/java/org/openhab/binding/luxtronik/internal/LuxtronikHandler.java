@@ -343,6 +343,8 @@ public class LuxtronikHandler extends BaseThingHandler {
                     new DateTimeType(ZonedDateTime.ofInstant(Instant.ofEpochSecond(heatpumpValues[99]), ZoneOffset.UTC)
                             .withZoneSameInstant(ZoneId.systemDefault())));
 
+            updateState(CHANNEL_HEATPUMP_SWITCHOFF_ERROR_COUNT, new DecimalType(heatpumpValues[105]));
+
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_0, new DecimalType(heatpumpValues[106]));
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_1, new DecimalType(heatpumpValues[107]));
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_2, new DecimalType(heatpumpValues[108]));
