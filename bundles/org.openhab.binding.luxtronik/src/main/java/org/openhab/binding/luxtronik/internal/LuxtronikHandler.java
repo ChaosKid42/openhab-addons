@@ -226,6 +226,11 @@ public class LuxtronikHandler extends BaseThingHandler {
         return config.host + ":" + config.port;
     }
 
+    private ZonedDateTime getZdtFromTimestamp(long timestamp) {
+        return ZonedDateTime.ofInstant(Instant.ofEpochSecond(timestamp), ZoneOffset.UTC)
+                .withZoneSameInstant(ZoneId.systemDefault());
+    }
+
     @Override
     public void dispose() {
         final ScheduledFuture<?> refreshTask = this.refreshTask;
@@ -328,20 +333,15 @@ public class LuxtronikHandler extends BaseThingHandler {
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_ERROR_4, new DecimalType(heatpumpValues[104]));
 
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_ERROR_TIMESTAMP_0,
-                    new DateTimeType(ZonedDateTime.ofInstant(Instant.ofEpochSecond(heatpumpValues[95]), ZoneOffset.UTC)
-                            .withZoneSameInstant(ZoneId.systemDefault())));
+                    new DateTimeType(getZdtFromTimestamp(heatpumpValues[95])));
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_ERROR_TIMESTAMP_1,
-                    new DateTimeType(ZonedDateTime.ofInstant(Instant.ofEpochSecond(heatpumpValues[96]), ZoneOffset.UTC)
-                            .withZoneSameInstant(ZoneId.systemDefault())));
+                    new DateTimeType(getZdtFromTimestamp(heatpumpValues[96])));
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_ERROR_TIMESTAMP_2,
-                    new DateTimeType(ZonedDateTime.ofInstant(Instant.ofEpochSecond(heatpumpValues[97]), ZoneOffset.UTC)
-                            .withZoneSameInstant(ZoneId.systemDefault())));
+                    new DateTimeType(getZdtFromTimestamp(heatpumpValues[97])));
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_ERROR_TIMESTAMP_3,
-                    new DateTimeType(ZonedDateTime.ofInstant(Instant.ofEpochSecond(heatpumpValues[98]), ZoneOffset.UTC)
-                            .withZoneSameInstant(ZoneId.systemDefault())));
+                    new DateTimeType(getZdtFromTimestamp(heatpumpValues[98])));
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_ERROR_TIMESTAMP_4,
-                    new DateTimeType(ZonedDateTime.ofInstant(Instant.ofEpochSecond(heatpumpValues[99]), ZoneOffset.UTC)
-                            .withZoneSameInstant(ZoneId.systemDefault())));
+                    new DateTimeType(getZdtFromTimestamp(heatpumpValues[99])));
 
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_ERROR_COUNT, new DecimalType(heatpumpValues[105]));
 
@@ -352,20 +352,15 @@ public class LuxtronikHandler extends BaseThingHandler {
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_4, new DecimalType(heatpumpValues[110]));
 
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_TIMESTAMP_0,
-                    new DateTimeType(ZonedDateTime.ofInstant(Instant.ofEpochSecond(heatpumpValues[111]), ZoneOffset.UTC)
-                            .withZoneSameInstant(ZoneId.systemDefault())));
+                    new DateTimeType(getZdtFromTimestamp(heatpumpValues[111])));
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_TIMESTAMP_1,
-                    new DateTimeType(ZonedDateTime.ofInstant(Instant.ofEpochSecond(heatpumpValues[112]), ZoneOffset.UTC)
-                            .withZoneSameInstant(ZoneId.systemDefault())));
+                    new DateTimeType(getZdtFromTimestamp(heatpumpValues[112])));
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_TIMESTAMP_2,
-                    new DateTimeType(ZonedDateTime.ofInstant(Instant.ofEpochSecond(heatpumpValues[113]), ZoneOffset.UTC)
-                            .withZoneSameInstant(ZoneId.systemDefault())));
+                    new DateTimeType(getZdtFromTimestamp(heatpumpValues[113])));
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_TIMESTAMP_3,
-                    new DateTimeType(ZonedDateTime.ofInstant(Instant.ofEpochSecond(heatpumpValues[114]), ZoneOffset.UTC)
-                            .withZoneSameInstant(ZoneId.systemDefault())));
+                    new DateTimeType(getZdtFromTimestamp(heatpumpValues[114])));
             updateState(CHANNEL_HEATPUMP_SWITCHOFF_REASON_TIMESTAMP_4,
-                    new DateTimeType(ZonedDateTime.ofInstant(Instant.ofEpochSecond(heatpumpValues[115]), ZoneOffset.UTC)
-                            .withZoneSameInstant(ZoneId.systemDefault())));
+                    new DateTimeType(getZdtFromTimestamp(heatpumpValues[115])));
 
             updateState(CHANNEL_HEATPUMP_EXTENDED_STATE, new StringType(String.valueOf(heatpumpValues[119])));
 
