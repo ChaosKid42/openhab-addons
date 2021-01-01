@@ -20,6 +20,7 @@ import org.eclipse.jdt.annotation.NonNullByDefault;
  * @author Jan-Philipp Bolle - Initial contribution
  * @author John Cocula - made port configurable
  * @author Hilbrand Bouwkamp - Migrated to openHAB 3
+ * @author Christoph Scholz - Finished migration to openHAB 3
  */
 @NonNullByDefault
 public class LuxtronikConfiguration {

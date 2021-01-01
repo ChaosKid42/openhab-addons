@@ -21,6 +21,7 @@ import org.openhab.core.thing.ThingTypeUID;
  *
  * @author Jan-Philipp Bolle - Initial contribution
  * @author Hilbrand Bouwkamp - Migrated to openHAB 3
+ * @author Christoph Scholz - Finished migration to openHAB 3
  */
 @NonNullByDefault
 public class LuxtronikBindingConstants {
