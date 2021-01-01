@@ -20,6 +20,7 @@ import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
+import java.time.temporal.ValueRange;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
@@ -89,10 +90,8 @@ public class LuxtronikHandler extends BaseThingHandler {
             case CHANNEL_HEATING_OPERATION_MODE:
                 if (command instanceof StringType) {
                     final int value = Integer.parseInt(((StringType) command).toString());
-                    final HeatpumpOperationMode mode = HeatpumpOperationMode.fromValue(value);
-
-                    if (mode != null) {
-                        sendParamToHeatpump(PARAM_HEATING_OPERATION_MODE, mode.getValue());
+                    if (ValueRange.of(0, 4).isValidValue(value)) {
+                        sendParamToHeatpump(PARAM_HEATING_OPERATION_MODE, value);
                     } else {
                         logger.warn("Heatpump heating operation mode for channel {} with value {} is unknown.",
                                 channelUID, value);
@@ -116,9 +115,8 @@ public class LuxtronikHandler extends BaseThingHandler {
             case CHANNEL_WARMWATER_OPERATION_MODE:
                 if (command instanceof StringType) {
                     final int value = Integer.parseInt(((StringType) command).toString());
-                    HeatpumpOperationMode mode = HeatpumpOperationMode.fromValue(value);
-                    if (mode != null) {
-                        sendParamToHeatpump(PARAM_WARMWATER_OPERATION_MODE, mode.getValue());
+                    if (ValueRange.of(0, 4).isValidValue(value)) {
+                        sendParamToHeatpump(PARAM_WARMWATER_OPERATION_MODE, value);
                     } else {
                         logger.warn("Heatpump warmwater operation mode with value {} is unknown.", value);
                     }
@@ -140,9 +138,8 @@ public class LuxtronikHandler extends BaseThingHandler {
             case CHANNEL_COOLING_OPERATION_MODE:
                 if (command instanceof StringType) {
                     final int value = Integer.parseInt(((StringType) command).toString());
-                    HeatpumpCoolingOperationMode mode = HeatpumpCoolingOperationMode.fromValue(value);
-                    if (mode != null) {
-                        sendParamToHeatpump(PARAM_COOLING_OPERATION_MODE, mode.getValue());
+                    if (ValueRange.of(0, 1).isValidValue(value)) {
+                        sendParamToHeatpump(PARAM_COOLING_OPERATION_MODE, value);
                     } else {
                         logger.warn("Heatpump cooling operation mode with value {} is unknown.", value);
                     }
