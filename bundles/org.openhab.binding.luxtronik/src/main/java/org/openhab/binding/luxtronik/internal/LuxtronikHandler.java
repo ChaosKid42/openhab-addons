@@ -29,7 +29,9 @@ import org.eclipse.jdt.annotation.Nullable;
 import org.openhab.core.library.types.DateTimeType;
 import org.openhab.core.library.types.DecimalType;
 import org.openhab.core.library.types.OnOffType;
+import org.openhab.core.library.types.QuantityType;
 import org.openhab.core.library.types.StringType;
+import org.openhab.core.library.unit.SIUnits;
 import org.openhab.core.thing.ChannelUID;
 import org.openhab.core.thing.Thing;
 import org.openhab.core.thing.ThingStatus;
@@ -107,15 +109,18 @@ public class LuxtronikHandler extends BaseThingHandler {
                             StringType.class.getSimpleName());
                 }
                 break;
-            // old openHAB 1 code from here - remove line when done
             case CHANNEL_HEATING_TEMPERATURE:
-                if (command instanceof DecimalType) {
-                    float temperature = ((DecimalType) command).floatValue();
-                    int value = (int) (temperature * 10.);
-                    sendParamToHeatpump(PARAM_HEATING_TEMPERATURE, value);
+                if (command instanceof QuantityType<?> || command instanceof DecimalType) {
+                    QuantityType<?> temperatureInDegreesCelcius = (command instanceof QuantityType<?>)
+                            ? ((QuantityType<?>) command).toUnit(SIUnits.CELSIUS)
+                            : new QuantityType<>(((DecimalType) command), SIUnits.CELSIUS);
+                    if (temperatureInDegreesCelcius != null) {
+                        int value = (int) (temperatureInDegreesCelcius.floatValue() * 10.);
+                        sendParamToHeatpump(PARAM_HEATING_TEMPERATURE, value);
+                    }
                 } else {
-                    logger.warn("Heatpump heating temperature item {} must be from type:{}.", channelUID,
-                            DecimalType.class.getSimpleName());
+                    logger.warn("Heatpump heating temperature item {} must be from type:{} or {}.", channelUID,
+                            QuantityType.class.getSimpleName(), DecimalType.class.getSimpleName());
                 }
                 break;
             case CHANNEL_WARMWATER_OPERATION_MODE:
@@ -137,13 +142,17 @@ public class LuxtronikHandler extends BaseThingHandler {
                 }
                 break;
             case CHANNEL_WARMWATER_TEMPERATURE:
-                if (command instanceof DecimalType) {
-                    float temperature = ((DecimalType) command).floatValue();
-                    int value = (int) (temperature * 10.);
-                    sendParamToHeatpump(PARAM_WARMWATER_TEMPERATURE, value);
+                if (command instanceof QuantityType<?> || command instanceof DecimalType) {
+                    QuantityType<?> temperatureInDegreesCelcius = (command instanceof QuantityType<?>)
+                            ? ((QuantityType<?>) command).toUnit(SIUnits.CELSIUS)
+                            : new QuantityType<>(((DecimalType) command), SIUnits.CELSIUS);
+                    if (temperatureInDegreesCelcius != null) {
+                        int value = (int) (temperatureInDegreesCelcius.floatValue() * 10.);
+                        sendParamToHeatpump(PARAM_WARMWATER_TEMPERATURE, value);
+                    }
                 } else {
-                    logger.warn("Heatpump warmwater temperature item {} must be from type: {}.", channelUID,
-                            DecimalType.class.getSimpleName());
+                    logger.warn("Heatpump warmwater temperature item {} must be from type: {} or {}.", channelUID,
+                            QuantityType.class.getSimpleName(), DecimalType.class.getSimpleName());
                 }
                 break;
             case CHANNEL_COOLING_OPERATION_MODE:
@@ -165,23 +174,31 @@ public class LuxtronikHandler extends BaseThingHandler {
                 }
                 break;
             case CHANNEL_COOLING_RELEASE_TEMPERATURE:
-                if (command instanceof DecimalType) {
-                    float temperature = ((DecimalType) command).floatValue();
-                    int value = (int) (temperature * 10.);
-                    sendParamToHeatpump(PARAM_COOLING_RELEASE_TEMP, value);
+                if (command instanceof QuantityType<?> || command instanceof DecimalType) {
+                    QuantityType<?> temperatureInDegreesCelcius = (command instanceof QuantityType<?>)
+                            ? ((QuantityType<?>) command).toUnit(SIUnits.CELSIUS)
+                            : new QuantityType<>(((DecimalType) command), SIUnits.CELSIUS);
+                    if (temperatureInDegreesCelcius != null) {
+                        int value = (int) (temperatureInDegreesCelcius.floatValue() * 10.);
+                        sendParamToHeatpump(PARAM_COOLING_RELEASE_TEMP, value);
+                    }
                 } else {
-                    logger.warn("Heatpump cooling release temperature item {} must be from type: {}.", channelUID,
-                            DecimalType.class.getSimpleName());
+                    logger.warn("Heatpump cooling release temperature item {} must be from type: {} or {}.", channelUID,
+                            QuantityType.class.getSimpleName(), DecimalType.class.getSimpleName());
                 }
                 break;
             case CHANNEL_COOLING_INLET_TEMP:
-                if (command instanceof DecimalType) {
-                    float temperature = ((DecimalType) command).floatValue();
-                    int value = (int) (temperature * 10.);
-                    sendParamToHeatpump(PARAM_COOLING_INLET_TEMP, value);
+                if (command instanceof QuantityType<?> || command instanceof DecimalType) {
+                    QuantityType<?> temperatureInDegreesCelcius = (command instanceof QuantityType<?>)
+                            ? ((QuantityType<?>) command).toUnit(SIUnits.CELSIUS)
+                            : new QuantityType<>(((DecimalType) command), SIUnits.CELSIUS);
+                    if (temperatureInDegreesCelcius != null) {
+                        int value = (int) (temperatureInDegreesCelcius.floatValue() * 10.);
+                        sendParamToHeatpump(PARAM_COOLING_INLET_TEMP, value);
+                    }
                 } else {
-                    logger.warn("Heatpump cooling target temp MK1 item {} must be from type: {}.", channelUID,
-                            DecimalType.class.getSimpleName());
+                    logger.warn("Heatpump cooling target temp MK1 item {} must be from type: {} or {}.", channelUID,
+                            QuantityType.class.getSimpleName(), DecimalType.class.getSimpleName());
                 }
                 break;
             case CHANNEL_COOLING_START_AFTER_HOURS:
