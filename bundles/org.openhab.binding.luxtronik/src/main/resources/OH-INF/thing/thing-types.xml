@@ -24,11 +24,21 @@
 			<channel id="switchoff_error_2" typeId="switchoff_code"/>
 			<channel id="switchoff_error_3" typeId="switchoff_code"/>
 			<channel id="switchoff_error_4" typeId="switchoff_code"/>
+			<channel id="switchoff_error_timestamp_0" typeId="timestamp"/>
+			<channel id="switchoff_error_timestamp_1" typeId="timestamp"/>
+			<channel id="switchoff_error_timestamp_2" typeId="timestamp"/>
+			<channel id="switchoff_error_timestamp_3" typeId="timestamp"/>
+			<channel id="switchoff_error_timestamp_4" typeId="timestamp"/>
 			<channel id="switchoff_reason_0" typeId="switchoff_code"/>
 			<channel id="switchoff_reason_1" typeId="switchoff_code"/>
 			<channel id="switchoff_reason_2" typeId="switchoff_code"/>
 			<channel id="switchoff_reason_3" typeId="switchoff_code"/>
 			<channel id="switchoff_reason_4" typeId="switchoff_code"/>
+			<channel id="switchoff_reason_timestamp_0" typeId="timestamp"/>
+			<channel id="switchoff_reason_timestamp_1" typeId="timestamp"/>
+			<channel id="switchoff_reason_timestamp_2" typeId="timestamp"/>
+			<channel id="switchoff_reason_timestamp_3" typeId="timestamp"/>
+			<channel id="switchoff_reason_timestamp_4" typeId="timestamp"/>
 			<channel id="extended_state" typeId="extended_state"/>
 			<channel id="temperature_solar_collector" typeId="temperature_solar_collector"/>
 			<channel id="temperature_hot_gas" typeId="temperature_hot_gas"/>
@@ -816,6 +826,13 @@
 		<label>output_vdh2</label>
 		<description>output_vdh2</description>
 		<state readOnly="true"/>
+	</channel-type>
+
+	<channel-type id="timestamp">
+		<item-type>DateTime</item-type>
+		<label>TimeStamp</label>
+		<description>Date and time of last event change.</description>
+		<state readOnly="true" pattern="%1$tY-%1$tm-%1$td %1$tH:%1$tM"/>
 	</channel-type>
 
 </thing:thing-descriptions>
