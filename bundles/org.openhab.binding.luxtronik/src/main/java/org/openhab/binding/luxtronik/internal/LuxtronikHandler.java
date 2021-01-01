@@ -89,12 +89,17 @@ public class LuxtronikHandler extends BaseThingHandler {
         switch (channelUID.getId()) {
             case CHANNEL_HEATING_OPERATION_MODE:
                 if (command instanceof StringType) {
-                    final int value = Integer.parseInt(((StringType) command).toString());
-                    if (ValueRange.of(0, 4).isValidValue(value)) {
-                        sendParamToHeatpump(PARAM_HEATING_OPERATION_MODE, value);
-                    } else {
+                    try {
+                        final int value = Integer.parseInt(((StringType) command).toString());
+                        if (ValueRange.of(0, 4).isValidValue(value)) {
+                            sendParamToHeatpump(PARAM_HEATING_OPERATION_MODE, value);
+                        } else {
+                            logger.warn("Heatpump heating operation mode for channel {} with value {} is unknown.",
+                                    channelUID, value);
+                        }
+                    } catch (NumberFormatException e) {
                         logger.warn("Heatpump heating operation mode for channel {} with value {} is unknown.",
-                                channelUID, value);
+                                channelUID, command);
                     }
                 } else {
                     logger.warn("Heatpump heating operation mode item {} must be from type:{}.", channelUID,
@@ -114,11 +119,16 @@ public class LuxtronikHandler extends BaseThingHandler {
                 break;
             case CHANNEL_WARMWATER_OPERATION_MODE:
                 if (command instanceof StringType) {
-                    final int value = Integer.parseInt(((StringType) command).toString());
-                    if (ValueRange.of(0, 4).isValidValue(value)) {
-                        sendParamToHeatpump(PARAM_WARMWATER_OPERATION_MODE, value);
-                    } else {
-                        logger.warn("Heatpump warmwater operation mode with value {} is unknown.", value);
+                    try {
+                        final int value = Integer.parseInt(((StringType) command).toString());
+                        if (ValueRange.of(0, 4).isValidValue(value)) {
+                            sendParamToHeatpump(PARAM_WARMWATER_OPERATION_MODE, value);
+                        } else {
+                            logger.warn("Heatpump warmwater operation mode with value {} is unknown.", value);
+                        }
+                    } catch (NumberFormatException e) {
+                        logger.warn("Heatpump warmwater operation mode for channel {} with value {} is unknown.",
+                                channelUID, command);
                     }
                 } else {
                     logger.warn("Heatpump warmwater operation mode item {} must be from type: {}.", channelUID,
@@ -137,11 +147,16 @@ public class LuxtronikHandler extends BaseThingHandler {
                 break;
             case CHANNEL_COOLING_OPERATION_MODE:
                 if (command instanceof StringType) {
-                    final int value = Integer.parseInt(((StringType) command).toString());
-                    if (ValueRange.of(0, 1).isValidValue(value)) {
-                        sendParamToHeatpump(PARAM_COOLING_OPERATION_MODE, value);
-                    } else {
-                        logger.warn("Heatpump cooling operation mode with value {} is unknown.", value);
+                    try {
+                        final int value = Integer.parseInt(((StringType) command).toString());
+                        if (ValueRange.of(0, 1).isValidValue(value)) {
+                            sendParamToHeatpump(PARAM_COOLING_OPERATION_MODE, value);
+                        } else {
+                            logger.warn("Heatpump cooling operation mode with value {} is unknown.", value);
+                        }
+                    } catch (NumberFormatException e) {
+                        logger.warn("Heatpump cooling operation mode for channel {} with value {} is unknown.",
+                                channelUID, command);
                     }
                 } else {
                     logger.warn("Heatpump cooling operation mode item {} must be from type: {}.", channelUID,
